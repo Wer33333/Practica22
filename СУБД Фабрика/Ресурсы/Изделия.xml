@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+   <record>
+      <idizd>1</idizd>
+      <nameizd>Наволочка</nameizd>
+      <length>60</length>
+      <width>70</width>
+   </record>
+   <record>
+      <idizd>2</idizd>
+      <nameizd>Полотенце</nameizd>
+      <length>70</length>
+      <width>30</width>
+   </record>
+   <record>
+      <idizd>3</idizd>
+      <nameizd>Салфетка</nameizd>
+      <length>30</length>
+      <width>30</width>
+   </record>
+   <record>
+      <idizd>4</idizd>
+      <nameizd>Простыня</nameizd>
+      <length>190</length>
+      <width>150</width>
+   </record>
+   <record>
+      <idizd>5</idizd>
+      <nameizd>Пододеяльник</nameizd>
+      <length>200</length>
+      <width>150</width>
+   </record>
+</dataset> 
