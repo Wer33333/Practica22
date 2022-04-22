@@ -1,0 +1,11 @@
+E:\практика22.04.2022\Practica22\Practica22\bin\Debug\Practica22.exe.config
+E:\практика22.04.2022\Practica22\Practica22\bin\Debug\Practica22.exe
+E:\практика22.04.2022\Practica22\Practica22\bin\Debug\Practica22.pdb
+E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.csproj.AssemblyReference.cache
+E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.csproj.SuggestedBindingRedirects.cache
+E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.fAutoriz.resources
+E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.Properties.Resources.resources
+E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.csproj.GenerateResource.cache
+E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.csproj.CoreCompileInputs.cache
+E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.exe
+E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.pdb
