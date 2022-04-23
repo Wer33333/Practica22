@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Practica22
 {
-    public partial class fAutoriz : Form
+    public partial class fZakazchiki : Form
     {
-        public fAutoriz()
+        public fZakazchiki()
         {
             InitializeComponent();
         }
