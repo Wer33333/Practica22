@@ -9,3 +9,4 @@ E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.csproj.
 E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.csproj.CoreCompileInputs.cache
 E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.exe
 E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.pdb
+E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.fReg.resources

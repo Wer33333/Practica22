@@ -1,0 +1,6 @@
+E:\VS2019\решение\PassCheck\PassCheck\bin\Debug\PassCheck.dll
+E:\VS2019\решение\PassCheck\PassCheck\bin\Debug\PassCheck.pdb
+E:\VS2019\решение\PassCheck\PassCheck\obj\Debug\PassCheck.csproj.AssemblyReference.cache
+E:\VS2019\решение\PassCheck\PassCheck\obj\Debug\PassCheck.csproj.CoreCompileInputs.cache
+E:\VS2019\решение\PassCheck\PassCheck\obj\Debug\PassCheck.dll
+E:\VS2019\решение\PassCheck\PassCheck\obj\Debug\PassCheck.pdb

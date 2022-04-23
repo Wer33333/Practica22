@@ -28,18 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAutoriz));
             this.pLogo = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lZag = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lLogin = new System.Windows.Forms.Label();
             this.tbLogin = new System.Windows.Forms.TextBox();
             this.tbPass = new System.Windows.Forms.TextBox();
             this.lPass = new System.Windows.Forms.Label();
             this.llReg = new System.Windows.Forms.LinkLabel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lCapcha = new System.Windows.Forms.Label();
             this.BtnAutor = new System.Windows.Forms.Button();
+            this.tbCapcha = new System.Windows.Forms.TextBox();
+            this.pbUpC = new System.Windows.Forms.PictureBox();
             this.pLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUpC)).BeginInit();
             this.SuspendLayout();
             // 
             // pLogo
@@ -56,6 +60,17 @@
             this.pLogo.Size = new System.Drawing.Size(530, 102);
             this.pLogo.TabIndex = 0;
             // 
+            // lZag
+            // 
+            this.lZag.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lZag.AutoSize = true;
+            this.lZag.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lZag.Location = new System.Drawing.Point(148, 31);
+            this.lZag.Name = "lZag";
+            this.lZag.Size = new System.Drawing.Size(178, 31);
+            this.lZag.TabIndex = 1;
+            this.lZag.Text = "Авторизация";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -67,17 +82,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // lZag
-            // 
-            this.lZag.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lZag.AutoSize = true;
-            this.lZag.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lZag.Location = new System.Drawing.Point(148, 31);
-            this.lZag.Name = "lZag";
-            this.lZag.Size = new System.Drawing.Size(178, 31);
-            this.lZag.TabIndex = 1;
-            this.lZag.Text = "Авторизация";
             // 
             // lLogin
             // 
@@ -93,6 +97,7 @@
             // tbLogin
             // 
             this.tbLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
             this.tbLogin.Font = new System.Drawing.Font("Tw Cen MT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbLogin.Location = new System.Drawing.Point(81, 165);
             this.tbLogin.Name = "tbLogin";
@@ -102,6 +107,7 @@
             // tbPass
             // 
             this.tbPass.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
             this.tbPass.Font = new System.Drawing.Font("Tw Cen MT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPass.Location = new System.Drawing.Point(81, 241);
             this.tbPass.Name = "tbPass";
@@ -131,22 +137,23 @@
             this.llReg.TabIndex = 5;
             this.llReg.TabStop = true;
             this.llReg.Text = "Регистрация";
+            this.llReg.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llReg_LinkClicked);
             // 
-            // label1
+            // lCapcha
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("Viner Hand ITC", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(196, 316);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 67);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "teex";
+            this.lCapcha.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lCapcha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
+            this.lCapcha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lCapcha.Font = new System.Drawing.Font("Viner Hand ITC", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lCapcha.Location = new System.Drawing.Point(194, 298);
+            this.lCapcha.Name = "lCapcha";
+            this.lCapcha.Size = new System.Drawing.Size(133, 67);
+            this.lCapcha.TabIndex = 6;
             // 
             // BtnAutor
             // 
             this.BtnAutor.AutoSize = true;
+            this.BtnAutor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
             this.BtnAutor.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BtnAutor.Font = new System.Drawing.Font("Tw Cen MT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAutor.Location = new System.Drawing.Point(0, 434);
@@ -154,15 +161,38 @@
             this.BtnAutor.Size = new System.Drawing.Size(530, 54);
             this.BtnAutor.TabIndex = 7;
             this.BtnAutor.Text = "Авторизация";
-            this.BtnAutor.UseVisualStyleBackColor = true;
+            this.BtnAutor.UseVisualStyleBackColor = false;
+            this.BtnAutor.Click += new System.EventHandler(this.BtnAutor_Click);
+            // 
+            // tbCapcha
+            // 
+            this.tbCapcha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
+            this.tbCapcha.Location = new System.Drawing.Point(194, 369);
+            this.tbCapcha.Name = "tbCapcha";
+            this.tbCapcha.Size = new System.Drawing.Size(133, 28);
+            this.tbCapcha.TabIndex = 8;
+            // 
+            // pbUpC
+            // 
+            this.pbUpC.Image = ((System.Drawing.Image)(resources.GetObject("pbUpC.Image")));
+            this.pbUpC.Location = new System.Drawing.Point(124, 315);
+            this.pbUpC.Name = "pbUpC";
+            this.pbUpC.Size = new System.Drawing.Size(64, 50);
+            this.pbUpC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbUpC.TabIndex = 9;
+            this.pbUpC.TabStop = false;
+            this.pbUpC.Click += new System.EventHandler(this.pbUpC_Click);
             // 
             // fAutoriz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(530, 488);
+            this.Controls.Add(this.pbUpC);
+            this.Controls.Add(this.tbCapcha);
             this.Controls.Add(this.BtnAutor);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lCapcha);
             this.Controls.Add(this.llReg);
             this.Controls.Add(this.tbPass);
             this.Controls.Add(this.lPass);
@@ -173,9 +203,11 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "fAutoriz";
             this.Text = "Авторизация";
+            this.Load += new System.EventHandler(this.fAutoriz_Load);
             this.pLogo.ResumeLayout(false);
             this.pLogo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUpC)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,7 +224,9 @@
         public System.Windows.Forms.TextBox tbPass;
         public System.Windows.Forms.Label lPass;
         public System.Windows.Forms.LinkLabel llReg;
-        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label lCapcha;
+        private System.Windows.Forms.TextBox tbCapcha;
+        private System.Windows.Forms.PictureBox pbUpC;
     }
 }
 

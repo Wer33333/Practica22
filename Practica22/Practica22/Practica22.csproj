@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PassCheck">
+      <HintPath>..\..\..\VS2019\решение\PassCheck\PassCheck\bin\Debug\PassCheck.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,16 +49,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="fAutoriz.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="fAutoriz.Designer.cs">
+      <DependentUpon>fAutoriz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fReg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fReg.Designer.cs">
+      <DependentUpon>fReg.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="fZakazchiki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fZakazchiki.Designer.cs">
+      <DependentUpon>fZakazchiki.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="fAutoriz.resx">
+      <DependentUpon>fAutoriz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fReg.resx">
+      <DependentUpon>fReg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -67,6 +85,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="fZakazchiki.resx">
+      <DependentUpon>fZakazchiki.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -82,6 +103,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fabric_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Dinamica_de_juego.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
