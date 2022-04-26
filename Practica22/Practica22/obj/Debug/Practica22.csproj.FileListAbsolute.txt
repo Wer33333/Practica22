@@ -10,3 +10,10 @@ E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.csproj.
 E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.exe
 E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.pdb
 E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.fReg.resources
+E:\практика22.04.2022\Practica22\Practica22\bin\Debug\PassCheck.dll
+E:\практика22.04.2022\Practica22\Practica22\bin\Debug\PassCheck.pdb
+E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.fZakazchiki.resources
+E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.csproj.CopyComplete
+E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.fProfil.resources
+E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.fManager.resources
+E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.KladMen.resources

@@ -49,17 +49,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FabricaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FabricaDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="fAutoriz.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fAutoriz.Designer.cs">
       <DependentUpon>fAutoriz.cs</DependentUpon>
     </Compile>
+    <Compile Include="fManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fManager.Designer.cs">
+      <DependentUpon>fManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fProfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fProfil.Designer.cs">
+      <DependentUpon>fProfil.cs</DependentUpon>
+    </Compile>
     <Compile Include="fReg.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fReg.Designer.cs">
       <DependentUpon>fReg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KladMen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KladMen.Designer.cs">
+      <DependentUpon>KladMen.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,8 +95,17 @@
     <EmbeddedResource Include="fAutoriz.resx">
       <DependentUpon>fAutoriz.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fManager.resx">
+      <DependentUpon>fManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fProfil.resx">
+      <DependentUpon>fProfil.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fReg.resx">
       <DependentUpon>fReg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KladMen.resx">
+      <DependentUpon>KladMen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -88,6 +120,17 @@
     <EmbeddedResource Include="fZakazchiki.resx">
       <DependentUpon>fZakazchiki.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="FabricaDataSet.xsc">
+      <DependentUpon>FabricaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FabricaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FabricaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FabricaDataSet.xss">
+      <DependentUpon>FabricaDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -41,6 +41,7 @@
             this.BtnAutor = new System.Windows.Forms.Button();
             this.tbCapcha = new System.Windows.Forms.TextBox();
             this.pbUpC = new System.Windows.Forms.PictureBox();
+            this.bHidePass = new System.Windows.Forms.Button();
             this.pLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUpC)).BeginInit();
@@ -57,7 +58,7 @@
             this.pLogo.ForeColor = System.Drawing.Color.Black;
             this.pLogo.Location = new System.Drawing.Point(0, 0);
             this.pLogo.Name = "pLogo";
-            this.pLogo.Size = new System.Drawing.Size(530, 102);
+            this.pLogo.Size = new System.Drawing.Size(538, 102);
             this.pLogo.TabIndex = 0;
             // 
             // lZag
@@ -65,7 +66,7 @@
             this.lZag.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lZag.AutoSize = true;
             this.lZag.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lZag.Location = new System.Drawing.Point(148, 31);
+            this.lZag.Location = new System.Drawing.Point(152, 31);
             this.lZag.Name = "lZag";
             this.lZag.Size = new System.Drawing.Size(178, 31);
             this.lZag.TabIndex = 1;
@@ -76,7 +77,7 @@
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBox1.Image = global::Practica22.Properties.Resources.fabric_logo;
-            this.pictureBox1.Location = new System.Drawing.Point(428, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(436, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 100);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -88,7 +89,7 @@
             this.lLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lLogin.AutoSize = true;
             this.lLogin.Font = new System.Drawing.Font("Tw Cen MT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lLogin.Location = new System.Drawing.Point(77, 138);
+            this.lLogin.Location = new System.Drawing.Point(81, 138);
             this.lLogin.Name = "lLogin";
             this.lLogin.Size = new System.Drawing.Size(56, 24);
             this.lLogin.TabIndex = 1;
@@ -99,7 +100,7 @@
             this.tbLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
             this.tbLogin.Font = new System.Drawing.Font("Tw Cen MT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbLogin.Location = new System.Drawing.Point(81, 165);
+            this.tbLogin.Location = new System.Drawing.Point(85, 165);
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(360, 30);
             this.tbLogin.TabIndex = 2;
@@ -109,7 +110,7 @@
             this.tbPass.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
             this.tbPass.Font = new System.Drawing.Font("Tw Cen MT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPass.Location = new System.Drawing.Point(81, 241);
+            this.tbPass.Location = new System.Drawing.Point(85, 241);
             this.tbPass.Name = "tbPass";
             this.tbPass.PasswordChar = '*';
             this.tbPass.Size = new System.Drawing.Size(360, 30);
@@ -120,7 +121,7 @@
             this.lPass.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lPass.AutoSize = true;
             this.lPass.Font = new System.Drawing.Font("Tw Cen MT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lPass.Location = new System.Drawing.Point(77, 214);
+            this.lPass.Location = new System.Drawing.Point(81, 214);
             this.lPass.Name = "lPass";
             this.lPass.Size = new System.Drawing.Size(68, 24);
             this.lPass.TabIndex = 3;
@@ -131,7 +132,7 @@
             this.llReg.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.llReg.AutoSize = true;
             this.llReg.Font = new System.Drawing.Font("Tw Cen MT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llReg.Location = new System.Drawing.Point(334, 274);
+            this.llReg.Location = new System.Drawing.Point(338, 274);
             this.llReg.Name = "llReg";
             this.llReg.Size = new System.Drawing.Size(107, 24);
             this.llReg.TabIndex = 5;
@@ -145,7 +146,7 @@
             this.lCapcha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
             this.lCapcha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lCapcha.Font = new System.Drawing.Font("Viner Hand ITC", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lCapcha.Location = new System.Drawing.Point(194, 298);
+            this.lCapcha.Location = new System.Drawing.Point(198, 298);
             this.lCapcha.Name = "lCapcha";
             this.lCapcha.Size = new System.Drawing.Size(133, 67);
             this.lCapcha.TabIndex = 6;
@@ -158,7 +159,7 @@
             this.BtnAutor.Font = new System.Drawing.Font("Tw Cen MT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAutor.Location = new System.Drawing.Point(0, 434);
             this.BtnAutor.Name = "BtnAutor";
-            this.BtnAutor.Size = new System.Drawing.Size(530, 54);
+            this.BtnAutor.Size = new System.Drawing.Size(538, 54);
             this.BtnAutor.TabIndex = 7;
             this.BtnAutor.Text = "Авторизация";
             this.BtnAutor.UseVisualStyleBackColor = false;
@@ -166,14 +167,16 @@
             // 
             // tbCapcha
             // 
+            this.tbCapcha.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbCapcha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
-            this.tbCapcha.Location = new System.Drawing.Point(194, 369);
+            this.tbCapcha.Location = new System.Drawing.Point(198, 368);
             this.tbCapcha.Name = "tbCapcha";
             this.tbCapcha.Size = new System.Drawing.Size(133, 28);
             this.tbCapcha.TabIndex = 8;
             // 
             // pbUpC
             // 
+            this.pbUpC.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbUpC.Image = ((System.Drawing.Image)(resources.GetObject("pbUpC.Image")));
             this.pbUpC.Location = new System.Drawing.Point(124, 315);
             this.pbUpC.Name = "pbUpC";
@@ -183,12 +186,25 @@
             this.pbUpC.TabStop = false;
             this.pbUpC.Click += new System.EventHandler(this.pbUpC_Click);
             // 
+            // bHidePass
+            // 
+            this.bHidePass.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bHidePass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
+            this.bHidePass.Location = new System.Drawing.Point(448, 241);
+            this.bHidePass.Name = "bHidePass";
+            this.bHidePass.Size = new System.Drawing.Size(89, 30);
+            this.bHidePass.TabIndex = 10;
+            this.bHidePass.Text = "Показать";
+            this.bHidePass.UseVisualStyleBackColor = false;
+            this.bHidePass.Click += new System.EventHandler(this.bHidePass_Click);
+            // 
             // fAutoriz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(530, 488);
+            this.ClientSize = new System.Drawing.Size(538, 488);
+            this.Controls.Add(this.bHidePass);
             this.Controls.Add(this.pbUpC);
             this.Controls.Add(this.tbCapcha);
             this.Controls.Add(this.BtnAutor);
@@ -227,6 +243,7 @@
         public System.Windows.Forms.Label lCapcha;
         private System.Windows.Forms.TextBox tbCapcha;
         private System.Windows.Forms.PictureBox pbUpC;
+        private System.Windows.Forms.Button bHidePass;
     }
 }
 

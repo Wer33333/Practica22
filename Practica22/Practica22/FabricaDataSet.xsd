@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FabricaDataSet" targetNamespace="http://tempuri.org/FabricaDataSet.xsd" xmlns:mstns="http://tempuri.org/FabricaDataSet.xsd" xmlns="http://tempuri.org/FabricaDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="FabricaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FabricaConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Practica22.Properties.Settings.GlobalReference.Default.FabricaConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FurnituraTableAdapter" GeneratorDataComponentClassName="FurnituraTableAdapter" Name="Furnitura" UserDataComponentName="FurnituraTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FabricaConnectionString (Settings)" DbObjectName="Fabrica.dbo.Furnitura" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT namefur, photo, countfur FROM dbo.Furnitura</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="namefur" DataSetColumn="namefur" />
+              <Mapping SourceColumn="photo" DataSetColumn="photo" />
+              <Mapping SourceColumn="countfur" DataSetColumn="countfur" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="IzdelieTableAdapter" GeneratorDataComponentClassName="IzdelieTableAdapter" Name="Izdelie" UserDataComponentName="IzdelieTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FabricaConnectionString (Settings)" DbObjectName="Fabrica.dbo.Izdelie" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT NameIzd FROM dbo.Izdelie</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NameIzd" DataSetColumn="NameIzd" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TcanTableAdapter" GeneratorDataComponentClassName="TcanTableAdapter" Name="Tcan" UserDataComponentName="TcanTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FabricaConnectionString (Settings)" DbObjectName="Fabrica.dbo.Tcan" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Photo, NameTcan FROM dbo.Tcan</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Photo" DataSetColumn="Photo" />
+              <Mapping SourceColumn="NameTcan" DataSetColumn="NameTcan" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ZakaziTableAdapter" GeneratorDataComponentClassName="ZakaziTableAdapter" Name="Zakazi" UserDataComponentName="ZakaziTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FabricaConnectionString (Settings)" DbObjectName="Fabrica.dbo.Zakazi" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT CountIzd FROM dbo.Zakazi</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CountIzd" DataSetColumn="CountIzd" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FabricaDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="FabricaDataSet" msprop:Generator_DataSetName="FabricaDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Furnitura" msprop:Generator_RowEvHandlerName="FurnituraRowChangeEventHandler" msprop:Generator_RowDeletedName="FurnituraRowDeleted" msprop:Generator_RowDeletingName="FurnituraRowDeleting" msprop:Generator_RowEvArgName="FurnituraRowChangeEvent" msprop:Generator_TablePropName="Furnitura" msprop:Generator_RowChangedName="FurnituraRowChanged" msprop:Generator_RowChangingName="FurnituraRowChanging" msprop:Generator_TableClassName="FurnituraDataTable" msprop:Generator_RowClassName="FurnituraRow" msprop:Generator_TableVarName="tableFurnitura" msprop:Generator_UserTableName="Furnitura">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="namefur" msprop:Generator_ColumnPropNameInRow="namefur" msprop:Generator_ColumnPropNameInTable="namefurColumn" msprop:Generator_ColumnVarNameInTable="columnnamefur" msprop:Generator_UserColumnName="namefur" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="photo" msprop:Generator_ColumnPropNameInRow="photo" msprop:Generator_ColumnPropNameInTable="photoColumn" msprop:Generator_ColumnVarNameInTable="columnphoto" msprop:Generator_UserColumnName="photo" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="countfur" msprop:Generator_ColumnPropNameInRow="countfur" msprop:Generator_ColumnPropNameInTable="countfurColumn" msprop:Generator_ColumnVarNameInTable="columncountfur" msprop:Generator_UserColumnName="countfur" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Izdelie" msprop:Generator_RowEvHandlerName="IzdelieRowChangeEventHandler" msprop:Generator_RowDeletedName="IzdelieRowDeleted" msprop:Generator_RowDeletingName="IzdelieRowDeleting" msprop:Generator_RowEvArgName="IzdelieRowChangeEvent" msprop:Generator_TablePropName="Izdelie" msprop:Generator_RowChangedName="IzdelieRowChanged" msprop:Generator_RowChangingName="IzdelieRowChanging" msprop:Generator_TableClassName="IzdelieDataTable" msprop:Generator_RowClassName="IzdelieRow" msprop:Generator_TableVarName="tableIzdelie" msprop:Generator_UserTableName="Izdelie">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NameIzd" msprop:Generator_ColumnPropNameInRow="NameIzd" msprop:Generator_ColumnPropNameInTable="NameIzdColumn" msprop:Generator_ColumnVarNameInTable="columnNameIzd" msprop:Generator_UserColumnName="NameIzd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Tcan" msprop:Generator_RowEvHandlerName="TcanRowChangeEventHandler" msprop:Generator_RowDeletedName="TcanRowDeleted" msprop:Generator_RowDeletingName="TcanRowDeleting" msprop:Generator_RowEvArgName="TcanRowChangeEvent" msprop:Generator_TablePropName="Tcan" msprop:Generator_RowChangedName="TcanRowChanged" msprop:Generator_RowChangingName="TcanRowChanging" msprop:Generator_TableClassName="TcanDataTable" msprop:Generator_RowClassName="TcanRow" msprop:Generator_TableVarName="tableTcan" msprop:Generator_UserTableName="Tcan">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Photo" msprop:Generator_ColumnPropNameInRow="Photo" msprop:Generator_ColumnPropNameInTable="PhotoColumn" msprop:Generator_ColumnVarNameInTable="columnPhoto" msprop:Generator_UserColumnName="Photo" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="NameTcan" msprop:Generator_ColumnPropNameInRow="NameTcan" msprop:Generator_ColumnPropNameInTable="NameTcanColumn" msprop:Generator_ColumnVarNameInTable="columnNameTcan" msprop:Generator_UserColumnName="NameTcan" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Zakazi" msprop:Generator_RowEvHandlerName="ZakaziRowChangeEventHandler" msprop:Generator_RowDeletedName="ZakaziRowDeleted" msprop:Generator_RowDeletingName="ZakaziRowDeleting" msprop:Generator_RowEvArgName="ZakaziRowChangeEvent" msprop:Generator_TablePropName="Zakazi" msprop:Generator_RowChangedName="ZakaziRowChanged" msprop:Generator_RowChangingName="ZakaziRowChanging" msprop:Generator_TableClassName="ZakaziDataTable" msprop:Generator_RowClassName="ZakaziRow" msprop:Generator_TableVarName="tableZakazi" msprop:Generator_UserTableName="Zakazi">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CountIzd" msprop:Generator_ColumnPropNameInRow="CountIzd" msprop:Generator_ColumnPropNameInTable="CountIzdColumn" msprop:Generator_ColumnVarNameInTable="columnCountIzd" msprop:Generator_UserColumnName="CountIzd" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

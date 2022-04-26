@@ -19,6 +19,7 @@ namespace Practica22
             public static string ばか;
             public static string ConString = @"Data Source=213.155.192.79,3002;Initial Catalog=Fabrica;Persist Security Info=True;User ID=u20lebed;Password=RT3E";
             public static string Role;
+            public static string FIO;
         }
         
         public fAutoriz()
@@ -56,7 +57,7 @@ namespace Practica22
             g.Clear(Color.Gray);
 
             Capcha = String.Empty;
-            string ALF = "1234567890QWERTYUIOPASDFGHJKLZXCVBNM";
+            string ALF = "1234567890QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm";
             for (int i = 0; i < 5; ++i)
                 Capcha += ALF[rnd.Next(ALF.Length)];
 
@@ -109,13 +110,25 @@ namespace Practica22
                 return;
             }
 
-            SqlConn($@"select Login,Passw,Role from Users where Login='{tbLogin.Text}' and Passw='{tbPass.Text}'", true);
+            SqlConn($@"select Login,IDUser,Passw,Role,Fam,Name,Otch from Users where Login='{tbLogin.Text}' and Passw='{tbPass.Text}'", true);
             if (!rd.HasRows)
                 MessageBox.Show("Неверный логин или пароль!");
-            ばかじゃない.Role = rd["Role"].ToString();
+            else
+            {
+                ばかじゃない.ばか = rd["IDUSer"].ToString();
+                ばかじゃない.Role = rd["Role"].ToString();
+                ばかじゃない.FIO = rd["Fam"] + " " + rd["Name"] + " " + rd["Otch"];
+            }
             con.Close();
+            rd.Close();
 
             if (ばかじゃない.Role == "1")
+            {
+                this.Hide();
+                fZakazchiki fz = new fZakazchiki();
+                fz.Show();
+            }
+            if (ばかじゃない.Role == "2")
             {
                 this.Hide();
                 fZakazchiki fz = new fZakazchiki();
@@ -132,6 +145,13 @@ namespace Practica22
         private void fAutoriz_Load(object sender, EventArgs e)
         {
             lCapcha.Image = this.CreateImage(133, 67);
+        }
+
+        private void bHidePass_Click(object sender, EventArgs e)
+        {
+            if(tbPass.PasswordChar=='*')
+                tbPass.PasswordChar = '\0';
+            else tbPass.PasswordChar = '*';
         }
     }
 }
