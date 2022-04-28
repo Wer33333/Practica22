@@ -66,6 +66,12 @@
     <Compile Include="fManager.Designer.cs">
       <DependentUpon>fManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSlepok.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSlepok.Designer.cs">
+      <DependentUpon>FormSlepok.cs</DependentUpon>
+    </Compile>
     <Compile Include="fProfil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fManager.resx">
       <DependentUpon>fManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSlepok.resx">
+      <DependentUpon>FormSlepok.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fProfil.resx">
       <DependentUpon>fProfil.cs</DependentUpon>

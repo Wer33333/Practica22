@@ -17,3 +17,4 @@ E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.csproj.
 E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.fProfil.resources
 E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.fManager.resources
 E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.KladMen.resources
+E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.FormSlepok.resources

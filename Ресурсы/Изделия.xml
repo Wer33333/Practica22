@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+   <record>
+      <idi/zd>1</id/izd>
+      <name izd>Наволочка</name izd>
+      <length>60</length>
+      <width>70</width>
+   </record>
+   <record>
+      <idi/zd>2</id/izd>
+      <name izd>Полотенце</name izd>
+      <length>70</length>
+      <width>30</width>
+   </record>
+   <record>
+      <idi/zd>3</id/izd>
+      <name izd>Салфетка</name izd>
+      <length>30</length>
+      <width>30</width>
+   </record>
+   <record>
+      <idi/zd>4</id/izd>
+      <name izd>Простыня</name izd>
+      <length>190</length>
+      <width>150</width>
+   </record>
+   <record>
+      <idi/zd>5</id/izd>
+      <name izd>Пододеяльник</name izd>
+      <length>200</length>
+      <width>150</width>
+   </record>
+</dataset> 
