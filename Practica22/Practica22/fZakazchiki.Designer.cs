@@ -37,9 +37,15 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tcZak = new System.Windows.Forms.TabControl();
             this.tbKatalog = new System.Windows.Forms.TabPage();
-            this.tcFurnit = new System.Windows.Forms.TabControl();
+            this.tcZar = new System.Windows.Forms.TabControl();
             this.tpTcan = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tbFindTcan = new System.Windows.Forms.TextBox();
+            this.lFindTcan = new System.Windows.Forms.Label();
+            this.pTcan = new System.Windows.Forms.FlowLayoutPanel();
+            this.tpFurnit = new System.Windows.Forms.TabPage();
+            this.tbFindFur = new System.Windows.Forms.TextBox();
+            this.lFindFur = new System.Windows.Forms.Label();
+            this.pFur = new System.Windows.Forms.FlowLayoutPanel();
             this.tpNewZakaz = new System.Windows.Forms.TabPage();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
@@ -47,9 +53,9 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tpZakazStory = new System.Windows.Forms.TabPage();
-            this.pTcan = new System.Windows.Forms.FlowLayoutPanel();
-            this.lFindTcan = new System.Windows.Forms.Label();
-            this.tbFindTcan = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pHistory = new System.Windows.Forms.FlowLayoutPanel();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -57,13 +63,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tcZak.SuspendLayout();
             this.tbKatalog.SuspendLayout();
-            this.tcFurnit.SuspendLayout();
+            this.tcZar.SuspendLayout();
             this.tpTcan.SuspendLayout();
+            this.tpFurnit.SuspendLayout();
             this.tpNewZakaz.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tpZakazStory.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -106,13 +114,13 @@
             this.pLogo.Location = new System.Drawing.Point(0, 0);
             this.pLogo.Margin = new System.Windows.Forms.Padding(5);
             this.pLogo.Name = "pLogo";
-            this.pLogo.Size = new System.Drawing.Size(843, 171);
+            this.pLogo.Size = new System.Drawing.Size(843, 161);
             this.pLogo.TabIndex = 15;
             // 
             // bProfil
             // 
             this.bProfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(26)))));
-            this.bProfil.Location = new System.Drawing.Point(3, 129);
+            this.bProfil.Location = new System.Drawing.Point(3, 119);
             this.bProfil.Name = "bProfil";
             this.bProfil.Size = new System.Drawing.Size(110, 33);
             this.bProfil.TabIndex = 2;
@@ -125,7 +133,7 @@
             this.lZag.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lZag.AutoSize = true;
             this.lZag.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lZag.Location = new System.Drawing.Point(227, 52);
+            this.lZag.Location = new System.Drawing.Point(227, 47);
             this.lZag.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lZag.Name = "lZag";
             this.lZag.Size = new System.Drawing.Size(147, 31);
@@ -140,7 +148,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(676, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(165, 169);
+            this.pictureBox1.Size = new System.Drawing.Size(165, 159);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -152,17 +160,17 @@
             this.tcZak.Controls.Add(this.tpZakazStory);
             this.tcZak.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcZak.HotTrack = true;
-            this.tcZak.Location = new System.Drawing.Point(0, 171);
+            this.tcZak.Location = new System.Drawing.Point(0, 161);
             this.tcZak.Margin = new System.Windows.Forms.Padding(5);
             this.tcZak.Name = "tcZak";
             this.tcZak.SelectedIndex = 0;
-            this.tcZak.Size = new System.Drawing.Size(843, 478);
+            this.tcZak.Size = new System.Drawing.Size(843, 488);
             this.tcZak.TabIndex = 20;
             // 
             // tbKatalog
             // 
             this.tbKatalog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(160)))), ((int)(((byte)(26)))));
-            this.tbKatalog.Controls.Add(this.tcFurnit);
+            this.tbKatalog.Controls.Add(this.tcZar);
             this.tbKatalog.Location = new System.Drawing.Point(4, 31);
             this.tbKatalog.Margin = new System.Windows.Forms.Padding(5);
             this.tbKatalog.Name = "tbKatalog";
@@ -171,16 +179,16 @@
             this.tbKatalog.TabIndex = 0;
             this.tbKatalog.Text = "Каталог";
             // 
-            // tcFurnit
+            // tcZar
             // 
-            this.tcFurnit.Controls.Add(this.tpTcan);
-            this.tcFurnit.Controls.Add(this.tabPage2);
-            this.tcFurnit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tcFurnit.Location = new System.Drawing.Point(5, 5);
-            this.tcFurnit.Name = "tcFurnit";
-            this.tcFurnit.SelectedIndex = 0;
-            this.tcFurnit.Size = new System.Drawing.Size(825, 433);
-            this.tcFurnit.TabIndex = 1;
+            this.tcZar.Controls.Add(this.tpTcan);
+            this.tcZar.Controls.Add(this.tpFurnit);
+            this.tcZar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcZar.Location = new System.Drawing.Point(5, 5);
+            this.tcZar.Name = "tcZar";
+            this.tcZar.SelectedIndex = 0;
+            this.tcZar.Size = new System.Drawing.Size(825, 433);
+            this.tcZar.TabIndex = 1;
             // 
             // tpTcan
             // 
@@ -195,15 +203,78 @@
             this.tpTcan.Text = "Ткань";
             this.tpTcan.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // tbFindTcan
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 31);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(817, 398);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tbFindTcan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbFindTcan.Location = new System.Drawing.Point(578, 8);
+            this.tbFindTcan.Name = "tbFindTcan";
+            this.tbFindTcan.Size = new System.Drawing.Size(199, 28);
+            this.tbFindTcan.TabIndex = 2;
+            // 
+            // lFindTcan
+            // 
+            this.lFindTcan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lFindTcan.AutoSize = true;
+            this.lFindTcan.Location = new System.Drawing.Point(518, 11);
+            this.lFindTcan.Name = "lFindTcan";
+            this.lFindTcan.Size = new System.Drawing.Size(54, 22);
+            this.lFindTcan.TabIndex = 1;
+            this.lFindTcan.Text = "Поиск";
+            // 
+            // pTcan
+            // 
+            this.pTcan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pTcan.AutoScroll = true;
+            this.pTcan.Location = new System.Drawing.Point(0, 47);
+            this.pTcan.Name = "pTcan";
+            this.pTcan.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
+            this.pTcan.Size = new System.Drawing.Size(815, 378);
+            this.pTcan.TabIndex = 0;
+            // 
+            // tpFurnit
+            // 
+            this.tpFurnit.Controls.Add(this.tbFindFur);
+            this.tpFurnit.Controls.Add(this.lFindFur);
+            this.tpFurnit.Controls.Add(this.pFur);
+            this.tpFurnit.Location = new System.Drawing.Point(4, 31);
+            this.tpFurnit.Name = "tpFurnit";
+            this.tpFurnit.Padding = new System.Windows.Forms.Padding(3);
+            this.tpFurnit.Size = new System.Drawing.Size(817, 398);
+            this.tpFurnit.TabIndex = 1;
+            this.tpFurnit.Text = "Фурнитура";
+            this.tpFurnit.UseVisualStyleBackColor = true;
+            // 
+            // tbFindFur
+            // 
+            this.tbFindFur.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbFindFur.Location = new System.Drawing.Point(577, 5);
+            this.tbFindFur.Name = "tbFindFur";
+            this.tbFindFur.Size = new System.Drawing.Size(199, 28);
+            this.tbFindFur.TabIndex = 5;
+            // 
+            // lFindFur
+            // 
+            this.lFindFur.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lFindFur.AutoSize = true;
+            this.lFindFur.Location = new System.Drawing.Point(517, 8);
+            this.lFindFur.Name = "lFindFur";
+            this.lFindFur.Size = new System.Drawing.Size(54, 22);
+            this.lFindFur.TabIndex = 4;
+            this.lFindFur.Text = "Поиск";
+            // 
+            // pFur
+            // 
+            this.pFur.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pFur.AutoScroll = true;
+            this.pFur.Location = new System.Drawing.Point(1, 39);
+            this.pFur.Name = "pFur";
+            this.pFur.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
+            this.pFur.Size = new System.Drawing.Size(815, 378);
+            this.pFur.TabIndex = 3;
             // 
             // tpNewZakaz
             // 
@@ -289,43 +360,46 @@
             // 
             this.tpZakazStory.AutoScroll = true;
             this.tpZakazStory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
+            this.tpZakazStory.Controls.Add(this.textBox1);
+            this.tpZakazStory.Controls.Add(this.label4);
+            this.tpZakazStory.Controls.Add(this.pHistory);
             this.tpZakazStory.Location = new System.Drawing.Point(4, 31);
             this.tpZakazStory.Margin = new System.Windows.Forms.Padding(5);
             this.tpZakazStory.Name = "tpZakazStory";
             this.tpZakazStory.Padding = new System.Windows.Forms.Padding(5);
-            this.tpZakazStory.Size = new System.Drawing.Size(835, 443);
+            this.tpZakazStory.Size = new System.Drawing.Size(835, 453);
             this.tpZakazStory.TabIndex = 2;
             this.tpZakazStory.Text = "История заказов";
             // 
-            // pTcan
+            // textBox1
             // 
-            this.pTcan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(588, 13);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(199, 28);
+            this.textBox1.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(528, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(54, 22);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Поиск";
+            // 
+            // pHistory
+            // 
+            this.pHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pTcan.AutoScroll = true;
-            this.pTcan.Location = new System.Drawing.Point(0, 47);
-            this.pTcan.Name = "pTcan";
-            this.pTcan.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
-            this.pTcan.Size = new System.Drawing.Size(815, 351);
-            this.pTcan.TabIndex = 0;
-            // 
-            // lFindTcan
-            // 
-            this.lFindTcan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lFindTcan.AutoSize = true;
-            this.lFindTcan.Location = new System.Drawing.Point(518, 11);
-            this.lFindTcan.Name = "lFindTcan";
-            this.lFindTcan.Size = new System.Drawing.Size(54, 22);
-            this.lFindTcan.TabIndex = 1;
-            this.lFindTcan.Text = "Поиск";
-            // 
-            // tbFindTcan
-            // 
-            this.tbFindTcan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbFindTcan.Location = new System.Drawing.Point(578, 8);
-            this.tbFindTcan.Name = "tbFindTcan";
-            this.tbFindTcan.Size = new System.Drawing.Size(199, 28);
-            this.tbFindTcan.TabIndex = 2;
+            this.pHistory.AutoScroll = true;
+            this.pHistory.Location = new System.Drawing.Point(10, 52);
+            this.pHistory.Name = "pHistory";
+            this.pHistory.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
+            this.pHistory.Size = new System.Drawing.Size(815, 392);
+            this.pHistory.TabIndex = 3;
             // 
             // fZakazchiki
             // 
@@ -345,15 +419,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tcZak.ResumeLayout(false);
             this.tbKatalog.ResumeLayout(false);
-            this.tcFurnit.ResumeLayout(false);
+            this.tcZar.ResumeLayout(false);
             this.tpTcan.ResumeLayout(false);
             this.tpTcan.PerformLayout();
+            this.tpFurnit.ResumeLayout(false);
+            this.tpFurnit.PerformLayout();
             this.tpNewZakaz.ResumeLayout(false);
             this.tpNewZakaz.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tpZakazStory.ResumeLayout(false);
+            this.tpZakazStory.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -373,11 +451,17 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button bProfil;
-        private System.Windows.Forms.TabControl tcFurnit;
+        private System.Windows.Forms.TabControl tcZar;
         private System.Windows.Forms.TabPage tpTcan;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tpFurnit;
         private System.Windows.Forms.FlowLayoutPanel pTcan;
         private System.Windows.Forms.TextBox tbFindTcan;
         private System.Windows.Forms.Label lFindTcan;
+        private System.Windows.Forms.TextBox tbFindFur;
+        private System.Windows.Forms.Label lFindFur;
+        private System.Windows.Forms.FlowLayoutPanel pFur;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.FlowLayoutPanel pHistory;
     }
 }

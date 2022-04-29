@@ -17,7 +17,181 @@ namespace Practica22
             InitializeComponent();
         }
 
-        class ItemPanel : Panel
+
+        class ItemPanelFur : Panel
+        {
+
+            public System.Windows.Forms.Panel pf;
+            public System.Windows.Forms.Label lCntFur;
+            public System.Windows.Forms.Label lNazvFur;
+            public System.Windows.Forms.PictureBox pbFur;
+            public string IDFur;
+            public ItemPanelFur()
+            {
+                this.pf = new System.Windows.Forms.Panel();
+                this.lCntFur = new System.Windows.Forms.Label();
+                this.lNazvFur = new System.Windows.Forms.Label();
+                this.pbFur = new System.Windows.Forms.PictureBox();
+                // 
+                // pf
+                // 
+                this.pf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
+                this.pf.Controls.Add(this.lCntFur);
+                this.pf.Controls.Add(this.lNazvFur);
+                this.pf.Controls.Add(this.pbFur);
+                this.pf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                this.pf.Location = new System.Drawing.Point(12, 12);
+                this.pf.Name = "pf";
+                this.pf.Size = new System.Drawing.Size(346, 128);
+                this.pf.TabIndex = 0;
+                // 
+                // lCntFur
+                // 
+                this.lCntFur.AutoSize = true;
+                this.lCntFur.Location = new System.Drawing.Point(131, 103);
+                this.lCntFur.Name = "lCntFur";
+                this.lCntFur.Size = new System.Drawing.Size(58, 22);
+                this.lCntFur.TabIndex = 2;
+                this.lCntFur.Text = "label2";
+                // 
+                // lNazvFur
+                // 
+                this.lNazvFur.AutoSize = true;
+                this.lNazvFur.Location = new System.Drawing.Point(132, 4);
+                this.lNazvFur.Name = "lNazvFur";
+                this.lNazvFur.Size = new System.Drawing.Size(58, 22);
+                this.lNazvFur.TabIndex = 1;
+                this.lNazvFur.Text = "label1";
+                // 
+                // pbFur
+                // 
+                this.pbFur.Location = new System.Drawing.Point(3, 3);
+                this.pbFur.Name = "pbFur";
+                this.pbFur.Size = new System.Drawing.Size(122, 122);
+                this.pbFur.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+                this.pbFur.TabIndex = 0;
+                this.pbFur.TabStop = false;
+            }
+        }
+
+        class ItemPanelHis : Panel
+        {
+
+            public System.Windows.Forms.Panel pZ;
+            public System.Windows.Forms.Label lCntF;
+            public System.Windows.Forms.Label lCntIzd;
+            public System.Windows.Forms.Label lI;
+            public System.Windows.Forms.Label lF;
+            public System.Windows.Forms.Label lT;
+            public System.Windows.Forms.Label lM;
+            public System.Windows.Forms.Label lZ;
+            public System.Windows.Forms.PictureBox PbT;
+            public System.Windows.Forms.PictureBox PbF;
+
+            public ItemPanelHis()
+            {
+                this.pZ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
+                this.pZ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                this.pZ.Controls.Add(this.lCntF);
+                this.pZ.Controls.Add(this.lCntIzd);
+                this.pZ.Controls.Add(this.lI);
+                this.pZ.Controls.Add(this.lF);
+                this.pZ.Controls.Add(this.lT);
+                this.pZ.Controls.Add(this.lM);
+                this.pZ.Controls.Add(this.lZ);
+                this.pZ.Controls.Add(this.PbT);
+                this.pZ.Controls.Add(this.PbF);
+                this.pZ.Location = new System.Drawing.Point(12, 12);
+                this.pZ.Name = "pZ";
+                this.pZ.Size = new System.Drawing.Size(504, 232);
+                this.pZ.TabIndex = 0;
+                // 
+                // PbF
+                // 
+                this.PbF.Location = new System.Drawing.Point(200, 126);
+                this.PbF.Name = "PbF";
+                this.PbF.Size = new System.Drawing.Size(100, 100);
+                this.PbF.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+                this.PbF.TabIndex = 0;
+                this.PbF.TabStop = false;
+                // 
+                // PbT
+                // 
+                this.PbT.Location = new System.Drawing.Point(3, 126);
+                this.PbT.Name = "PbT";
+                this.PbT.Size = new System.Drawing.Size(100, 100);
+                this.PbT.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+                this.PbT.TabIndex = 1;
+                this.PbT.TabStop = false;
+                // 
+                // lZ
+                // 
+                this.lZ.AutoSize = true;
+                this.lZ.Location = new System.Drawing.Point(-1, 10);
+                this.lZ.Name = "lZ";
+                this.lZ.Size = new System.Drawing.Size(250, 22);
+                this.lZ.TabIndex = 2;
+                this.lZ.Text = "Заказчик: Иванов Иван Иванович";
+                // 
+                // lM
+                // 
+                this.lM.AutoSize = true;
+                this.lM.Location = new System.Drawing.Point(-1, 39);
+                this.lM.Name = "lM";
+                this.lM.Size = new System.Drawing.Size(257, 22);
+                this.lM.TabIndex = 3;
+                this.lM.Text = "Менеджер: Иванов Иван Иванович";
+                // 
+                // lT
+                // 
+                this.lT.AutoSize = true;
+                this.lT.Location = new System.Drawing.Point(-1, 101);
+                this.lT.Name = "lT";
+                this.lT.Size = new System.Drawing.Size(117, 22);
+                this.lT.TabIndex = 4;
+                this.lT.Text = "Ткань: Завитки";
+                // 
+                // lF
+                // 
+                this.lF.AutoSize = true;
+                this.lF.Location = new System.Drawing.Point(196, 101);
+                this.lF.Name = "lF";
+                this.lF.Size = new System.Drawing.Size(176, 22);
+                this.lF.TabIndex = 5;
+                this.lF.Text = "Фурнитура: Пуговицы 3";
+                // 
+                // lI
+                // 
+                this.lI.AutoSize = true;
+                this.lI.Location = new System.Drawing.Point(-1, 70);
+                this.lI.Name = "lI";
+                this.lI.Size = new System.Drawing.Size(184, 22);
+                this.lI.TabIndex = 6;
+                this.lI.Text = "Изделие: Пододеяльник";
+                // 
+                // lCntIzd
+                // 
+                this.lCntIzd.AutoSize = true;
+                this.lCntIzd.Location = new System.Drawing.Point(325, 10);
+                this.lCntIzd.Name = "lCntIzd";
+                this.lCntIzd.Size = new System.Drawing.Size(121, 22);
+                this.lCntIzd.TabIndex = 7;
+                this.lCntIzd.Text = "кол во изделий";
+                // 
+                // lCntF
+                // 
+                this.lCntF.AutoSize = true;
+                this.lCntF.Location = new System.Drawing.Point(305, 204);
+                this.lCntF.Name = "lCntF";
+                this.lCntF.Size = new System.Drawing.Size(141, 22);
+                this.lCntF.TabIndex = 8;
+                this.lCntF.Text = "кол-во фурнитуры";
+            }
+        }
+
+
+
+        class ItemPanelTcan : Panel
         {
             #region 千引く七
             public System.Windows.Forms.Panel PanelMain;
@@ -27,9 +201,9 @@ namespace Practica22
             public System.Windows.Forms.Label lColor;
             public System.Windows.Forms.Label lName;
             public System.Windows.Forms.PictureBox pbPhotoTcan;
-            public string ID;
+            public string IDTcan;
             #endregion
-            public ItemPanel()
+            public ItemPanelTcan()
             {
                 this.PanelMain = new System.Windows.Forms.Panel();
                 this.lHeigth = new System.Windows.Forms.Label();
@@ -117,12 +291,35 @@ namespace Practica22
         private void fZakazchiki_Load(object sender, EventArgs e)
         {
             GetDateTcanFromDB();
+            GetDateFurnFromDB();
             FillPanel();
             lZag.Text = fAutoriz.ばかじゃない.FIO;
         }
 
         List<Tcan> LstTcan=new List<Tcan>();
-        ItemPanel CurrentItem;
+        List<Furn> LstFurn = new List<Furn>();
+        ItemPanelTcan CurrentItemTcan;
+        ItemPanelFur CurrentItemFur;
+
+        #region GetDB
+
+        void GetDateFurnFromDB()
+        {
+            fAutoriz.SqlConn(@"select * from furnitura", true);
+            LstFurn.Clear();
+            while (fAutoriz.rd.Read())
+            {
+                Furn furn = new Furn();
+                furn.Name = "Название: " + fAutoriz.rd["namefur"].ToString();
+                furn.ID = fAutoriz.rd["idfur"].ToString();
+                furn.Cnt= fAutoriz.rd["countfur"].ToString();
+                byte[] ByteImage = (byte[])fAutoriz.rd["photo"];
+                furn.PhotoFur = (Bitmap)(new ImageConverter().ConvertFrom(ByteImage));
+                LstFurn.Add(furn);
+            }
+            fAutoriz.rd.Close();
+            fAutoriz.con.Close();
+        }
 
         void GetDateTcanFromDB()
         {
@@ -144,67 +341,121 @@ namespace Practica22
             fAutoriz.rd.Close();
             fAutoriz.con.Close();
         }
+        #endregion
 
+        #region FillPanel
         void FillPanel()
         {
             pTcan.Controls.Clear();
 
             foreach (Tcan tcan in LstTcan)
             {
-                ItemPanel itempanel = new ItemPanel();
-                itempanel.lColor.Text = tcan.Color;
-                itempanel.lDesc.Text = tcan.Desk;
-                itempanel.lHeigth.Text = tcan.H;
-                itempanel.lWidth.Text = tcan.W;
-                itempanel.lName.Text = tcan.Name;
-                itempanel.ID= tcan.ID;
+                ItemPanelTcan ItemPanelTcan = new ItemPanelTcan();
+                ItemPanelTcan.lColor.Text = tcan.Color;
+                ItemPanelTcan.lDesc.Text = tcan.Desk;
+                ItemPanelTcan.lHeigth.Text = tcan.H;
+                ItemPanelTcan.lWidth.Text = tcan.W;
+                ItemPanelTcan.lName.Text = tcan.Name;
+                ItemPanelTcan.IDTcan= tcan.ID;
 
                 try
                 {
-                    itempanel.pbPhotoTcan.Image = tcan.PhotoTcan;
+                    ItemPanelTcan.pbPhotoTcan.Image = tcan.PhotoTcan;
                 }
                 catch
                 {
 
                 }
-                pTcan.Controls.Add(itempanel);
+                pTcan.Controls.Add(ItemPanelTcan);
 
-                itempanel.Click += Itempanel_Click;
-                itempanel.pbPhotoTcan.Click += Object_Click;
-                itempanel.lColor.Click += Object_Click;
-                itempanel.lDesc.Click+=Object_Click;
-                itempanel.lHeigth.Click+=Object_Click;
-                itempanel.lWidth.Click+=Object_Click;
-                itempanel.lName.Click+=Object_Click;
+                ItemPanelTcan.Click += ItemPanelTcan_Click;
+                ItemPanelTcan.pbPhotoTcan.Click += Object_Click;
+                ItemPanelTcan.lColor.Click += Object_Click;
+                ItemPanelTcan.lDesc.Click+=Object_Click;
+                ItemPanelTcan.lHeigth.Click+=Object_Click;
+                ItemPanelTcan.lWidth.Click+=Object_Click;
+                ItemPanelTcan.lName.Click+=Object_Click;
 
                 if(pTcan.Controls.Count == 1)
                 {
-                    CurrentItem = itempanel;
-                    CurrentItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
+                    CurrentItemTcan = ItemPanelTcan;
+                    CurrentItemTcan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
+                }
+            }
+
+            pFur.Controls.Clear();
+
+            foreach (Furn furn in LstFurn)
+            {
+                ItemPanelFur ItemPanelf = new ItemPanelFur();
+                ItemPanelf.lNazvFur.Text = furn.Name;
+                ItemPanelf.lCntFur.Text = furn.Cnt;
+                ItemPanelf.IDFur = furn.ID;
+                
+
+                try
+                {
+                    ItemPanelf.pbFur.Image = furn.PhotoFur;
+                }
+                catch
+                {
+
+                }
+                pFur.Controls.Add(ItemPanelf);
+
+                ItemPanelf.Click += itemFur;
+                ItemPanelf.pbFur.Click += ObjectFur;
+                ItemPanelf.lCntFur.Click += ObjectFur;
+                ItemPanelf.lNazvFur.Click += ObjectFur;
+
+
+                if (pFur.Controls.Count == 1)
+                {
+                    CurrentItemFur = ItemPanelf;
+                    CurrentItemFur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
                 }
             }
 
         }
+        #endregion
 
+        private void ObjectFur(object sender, EventArgs e)
+        {
+            CurrentItemFur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
+            CurrentItemFur = (sender as Control).Parent as ItemPanelFur;
+            CurrentItemFur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
+        }
+        
+        private void itemFur(object sender, EventArgs e)
+        {
+            CurrentItemFur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
+            CurrentItemFur = sender as ItemPanelFur;
+            CurrentItemFur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
+        }
 
         private void Object_Click(object sender, EventArgs e)
         {
-            CurrentItem.BackColor = Color.White;
-            CurrentItem = (sender as Control).Parent as ItemPanel;
-            CurrentItem.BackColor= System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
+            CurrentItemTcan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
+            CurrentItemTcan = (sender as Control).Parent as ItemPanelTcan;
+            CurrentItemTcan.BackColor= System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
         }
 
-        private void Itempanel_Click(object sender, EventArgs e)
+        private void ItemPanelTcan_Click(object sender, EventArgs e)
         {
-            CurrentItem.BackColor = Color.White;
-            CurrentItem = sender as ItemPanel;
-            CurrentItem.BackColor= System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
+            CurrentItemTcan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
+            CurrentItemTcan = sender as ItemPanelTcan;
+            CurrentItemTcan.BackColor= System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
         }
 
         struct Tcan
         {
             public string Name, Color, Desk, W, H, ID;
             public Image PhotoTcan;
+        }
+        struct Furn
+        {
+            public string ID, Name, Cnt;
+            public Image PhotoFur;
         }
 
 

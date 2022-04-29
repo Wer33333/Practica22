@@ -28,115 +28,149 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pZ = new System.Windows.Forms.Panel();
+            this.PbF = new System.Windows.Forms.PictureBox();
+            this.PbT = new System.Windows.Forms.PictureBox();
+            this.lZ = new System.Windows.Forms.Label();
+            this.lM = new System.Windows.Forms.Label();
+            this.lT = new System.Windows.Forms.Label();
+            this.lF = new System.Windows.Forms.Label();
+            this.lI = new System.Windows.Forms.Label();
+            this.lCntIzd = new System.Windows.Forms.Label();
+            this.lCntF = new System.Windows.Forms.Label();
+            this.pZ.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbT)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // pZ
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(12, 41);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(569, 128);
-            this.panel1.TabIndex = 1;
+            this.pZ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
+            this.pZ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pZ.Controls.Add(this.lCntF);
+            this.pZ.Controls.Add(this.lCntIzd);
+            this.pZ.Controls.Add(this.lI);
+            this.pZ.Controls.Add(this.lF);
+            this.pZ.Controls.Add(this.lT);
+            this.pZ.Controls.Add(this.lM);
+            this.pZ.Controls.Add(this.lZ);
+            this.pZ.Controls.Add(this.PbT);
+            this.pZ.Controls.Add(this.PbF);
+            this.pZ.Location = new System.Drawing.Point(12, 12);
+            this.pZ.Name = "pZ";
+            this.pZ.Size = new System.Drawing.Size(504, 232);
+            this.pZ.TabIndex = 0;
             // 
-            // label7
+            // PbF
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(243, 104);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(107, 19);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Высота: 120 см";
+            this.PbF.Location = new System.Drawing.Point(200, 126);
+            this.PbF.Name = "PbF";
+            this.PbF.Size = new System.Drawing.Size(100, 100);
+            this.PbF.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbF.TabIndex = 0;
+            this.PbF.TabStop = false;
             // 
-            // label6
+            // PbT
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(243, 77);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 19);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Ширина: 120 см";
+            this.PbT.Location = new System.Drawing.Point(3, 126);
+            this.PbT.Name = "PbT";
+            this.PbT.Size = new System.Drawing.Size(100, 100);
+            this.PbT.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbT.TabIndex = 1;
+            this.PbT.TabStop = false;
             // 
-            // label5
+            // lZ
             // 
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(375, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(193, 126);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Описание:";
+            this.lZ.AutoSize = true;
+            this.lZ.Location = new System.Drawing.Point(-1, 10);
+            this.lZ.Name = "lZ";
+            this.lZ.Size = new System.Drawing.Size(250, 22);
+            this.lZ.TabIndex = 2;
+            this.lZ.Text = "Заказчик: Иванов Иван Иванович";
             // 
-            // label2
+            // lM
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(129, 34);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 22);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Цвет: Бежевый";
+            this.lM.AutoSize = true;
+            this.lM.Location = new System.Drawing.Point(-1, 39);
+            this.lM.Name = "lM";
+            this.lM.Size = new System.Drawing.Size(257, 22);
+            this.lM.TabIndex = 3;
+            this.lM.Text = "Менеджер: Иванов Иван Иванович";
             // 
-            // label1
+            // lT
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(129, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 22);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Название: Плюш";
+            this.lT.AutoSize = true;
+            this.lT.Location = new System.Drawing.Point(-1, 101);
+            this.lT.Name = "lT";
+            this.lT.Size = new System.Drawing.Size(117, 22);
+            this.lT.TabIndex = 4;
+            this.lT.Text = "Ткань: Завитки";
             // 
-            // pictureBox1
+            // lF
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(120, 120);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.lF.AutoSize = true;
+            this.lF.Location = new System.Drawing.Point(196, 101);
+            this.lF.Name = "lF";
+            this.lF.Size = new System.Drawing.Size(176, 22);
+            this.lF.TabIndex = 5;
+            this.lF.Text = "Фурнитура: Пуговицы 3";
+            // 
+            // lI
+            // 
+            this.lI.AutoSize = true;
+            this.lI.Location = new System.Drawing.Point(-1, 70);
+            this.lI.Name = "lI";
+            this.lI.Size = new System.Drawing.Size(184, 22);
+            this.lI.TabIndex = 6;
+            this.lI.Text = "Изделие: Пододеяльник";
+            // 
+            // lCntIzd
+            // 
+            this.lCntIzd.AutoSize = true;
+            this.lCntIzd.Location = new System.Drawing.Point(325, 10);
+            this.lCntIzd.Name = "lCntIzd";
+            this.lCntIzd.Size = new System.Drawing.Size(121, 22);
+            this.lCntIzd.TabIndex = 7;
+            this.lCntIzd.Text = "кол во изделий";
+            // 
+            // lCntF
+            // 
+            this.lCntF.AutoSize = true;
+            this.lCntF.Location = new System.Drawing.Point(305, 204);
+            this.lCntF.Name = "lCntF";
+            this.lCntF.Size = new System.Drawing.Size(141, 22);
+            this.lCntF.TabIndex = 8;
+            this.lCntF.Text = "кол-во фурнитуры";
             // 
             // FormSlepok
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(657, 452);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pZ);
             this.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FormSlepok";
             this.Text = "FormSlepok";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pZ.ResumeLayout(false);
+            this.pZ.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbT)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel pZ;
+        private System.Windows.Forms.Label lCntF;
+        private System.Windows.Forms.Label lCntIzd;
+        private System.Windows.Forms.Label lI;
+        private System.Windows.Forms.Label lF;
+        private System.Windows.Forms.Label lT;
+        private System.Windows.Forms.Label lM;
+        private System.Windows.Forms.Label lZ;
+        private System.Windows.Forms.PictureBox PbT;
+        private System.Windows.Forms.PictureBox PbF;
     }
 }
