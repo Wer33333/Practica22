@@ -87,9 +87,21 @@ namespace Practica22
             public System.Windows.Forms.Label lZ;
             public System.Windows.Forms.PictureBox PbT;
             public System.Windows.Forms.PictureBox PbF;
+            public string IDI, IDT, IDF;
 
             public ItemPanelHis()
             {
+                this.pZ = new System.Windows.Forms.Panel();
+                this.PbF = new System.Windows.Forms.PictureBox();
+                this.PbT = new System.Windows.Forms.PictureBox();
+                this.lZ = new System.Windows.Forms.Label();
+                this.lM = new System.Windows.Forms.Label();
+                this.lT = new System.Windows.Forms.Label();
+                this.lF = new System.Windows.Forms.Label();
+                this.lI = new System.Windows.Forms.Label();
+                this.lCntIzd = new System.Windows.Forms.Label();
+                this.lCntF = new System.Windows.Forms.Label();
+
                 this.pZ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
                 this.pZ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
                 this.pZ.Controls.Add(this.lCntF);
@@ -292,14 +304,18 @@ namespace Practica22
         {
             GetDateTcanFromDB();
             GetDateFurnFromDB();
+            GetDateHisFromDB();
             FillPanel();
+            
             lZag.Text = fAutoriz.ばかじゃない.FIO;
         }
 
         List<Tcan> LstTcan=new List<Tcan>();
         List<Furn> LstFurn = new List<Furn>();
+        List<His> LstHis = new List<His>();
         ItemPanelTcan CurrentItemTcan;
         ItemPanelFur CurrentItemFur;
+        ItemPanelHis CurrentItemHis;
 
         #region GetDB
 
@@ -316,6 +332,47 @@ namespace Practica22
                 byte[] ByteImage = (byte[])fAutoriz.rd["photo"];
                 furn.PhotoFur = (Bitmap)(new ImageConverter().ConvertFrom(ByteImage));
                 LstFurn.Add(furn);
+            }
+            fAutoriz.rd.Close();
+            fAutoriz.con.Close();
+        }
+
+        void GetDateHisFromDB()
+        {
+            fAutoriz.SqlConn(@"select (select fam+' '+Name+' '+Otch from Users where IDUser=z.IDZacazchik) as 'zakazchik'
+      ,(select fam+' '+Name+' '+Otch from Users where IDUser=z.IDManager) as 'manager'
+	  ,f.countfur as 'cntf' ,f.namefur as 'namef' ,f.photo as 'pf',f.idfur as 'idf'
+	  ,i.NameIzd as 'namei' ,i.Length as 'cnti',i.IDIzd as 'idi'
+	  ,t.Photo as 'pt' ,t.NameTcan as 'namet',t.IDTcan as 'idt'
+
+from Furnitura f
+    ,Izdelie i
+	,Tcan t
+	,Zakazi z
+
+where z.IDIzd=i.IDIzd 
+  and z.IDFurn=f.idfur
+  and z.IDTkan=t.IDTcan", true);
+            LstHis.Clear();
+            while (fAutoriz.rd.Read())
+            {
+                His his = new His();
+                his.NameT =fAutoriz.rd["namet"].ToString();
+                his.IDT = fAutoriz.rd["idt"].ToString();
+                byte[] ByteImage = (byte[])fAutoriz.rd["pt"];
+                his.PhotoT = (Bitmap)(new ImageConverter().ConvertFrom(ByteImage));
+                ByteImage = (byte[])fAutoriz.rd["pf"];
+                his.PhotoF = (Bitmap)(new ImageConverter().ConvertFrom(ByteImage));
+                his.CntF = fAutoriz.rd["cntf"].ToString();
+                his.CntI = fAutoriz.rd["cnti"].ToString();
+                his.NameFm = fAutoriz.rd["namef"].ToString();
+                his.NameI = fAutoriz.rd["namei"].ToString();
+                his.IDF = fAutoriz.rd["idf"].ToString();
+                his.IDI = fAutoriz.rd["idi"].ToString();
+                his.Man = fAutoriz.rd["manager"].ToString();
+                his.Zak = fAutoriz.rd["zakazchik"].ToString();
+
+                LstHis.Add(his);
             }
             fAutoriz.rd.Close();
             fAutoriz.con.Close();
@@ -344,6 +401,9 @@ namespace Practica22
         #endregion
 
         #region FillPanel
+
+     
+        
         void FillPanel()
         {
             pTcan.Controls.Clear();
@@ -391,7 +451,7 @@ namespace Practica22
                 ItemPanelf.lNazvFur.Text = furn.Name;
                 ItemPanelf.lCntFur.Text = furn.Cnt;
                 ItemPanelf.IDFur = furn.ID;
-                
+
 
                 try
                 {
@@ -416,8 +476,65 @@ namespace Practica22
                 }
             }
 
+            pHistory.Controls.Clear();
+
+            foreach (His his in LstHis)
+            {
+                ItemPanelHis ItemPanelh = new ItemPanelHis();
+                ItemPanelh.lCntF.Text = his.CntF;
+                ItemPanelh.lCntIzd.Text = his.CntI;
+                ItemPanelh.lF.Text = his.NameFm;
+                ItemPanelh.lI.Text = his.NameI;
+                ItemPanelh.lT.Text = his.NameT;
+                ItemPanelh.lM.Text = his.Man;
+                ItemPanelh.lZ.Text = his.Zak;
+                ItemPanelh.IDT = his.IDT;
+                ItemPanelh.IDF = his.IDF;
+                ItemPanelh.IDI = his.IDI;
+                try
+                {
+                    ItemPanelh.PbF.Image = his.PhotoF;
+                    ItemPanelh.PbT.Image = his.PhotoT;
+                }
+                catch { }
+
+                pHistory.Controls.Add(ItemPanelh);
+
+                ItemPanelh.Click += ItemPanelh_Click;
+                ItemPanelh.lT.Click += objecth_Click;
+                ItemPanelh.lI.Click += objecth_Click;
+                ItemPanelh.lCntF.Click += objecth_Click;
+                ItemPanelh.lCntIzd.Click += objecth_Click;
+                ItemPanelh.lM.Click += objecth_Click;
+                ItemPanelh.lZ.Click += objecth_Click;
+                ItemPanelh.PbF.Click += objecth_Click;
+                ItemPanelh.PbT.Click += objecth_Click;
+                ItemPanelh.lF.Click += objecth_Click;
+
+
+                if (pHistory.Controls.Count == 1)
+                {
+                    CurrentItemHis = ItemPanelh;
+                    CurrentItemHis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
+                }
+            }
         }
+
         #endregion
+        private void objecth_Click(object sender, EventArgs e)
+        {
+            CurrentItemHis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
+            CurrentItemHis = (sender as Control).Parent as ItemPanelHis;
+            CurrentItemHis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
+        }
+
+        private void ItemPanelh_Click(object sender, EventArgs e)
+        {
+            CurrentItemHis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
+            CurrentItemHis = sender as ItemPanelHis;
+            CurrentItemHis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
+        }
+        
 
         private void ObjectFur(object sender, EventArgs e)
         {
@@ -456,6 +573,12 @@ namespace Practica22
         {
             public string ID, Name, Cnt;
             public Image PhotoFur;
+        }
+
+        struct His
+        {
+            public string Man, Zak, CntF, CntI, NameT, NameFm, NameI,IDT,IDF,IDI;
+            public Image PhotoT,PhotoF;
         }
 
 

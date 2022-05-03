@@ -45,7 +45,6 @@
             this.tpFurnit = new System.Windows.Forms.TabPage();
             this.tbFindFur = new System.Windows.Forms.TextBox();
             this.lFindFur = new System.Windows.Forms.Label();
-            this.pFur = new System.Windows.Forms.FlowLayoutPanel();
             this.tpNewZakaz = new System.Windows.Forms.TabPage();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
@@ -56,6 +55,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pHistory = new System.Windows.Forms.FlowLayoutPanel();
+            this.pFur = new System.Windows.Forms.FlowLayoutPanel();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -175,7 +175,7 @@
             this.tbKatalog.Margin = new System.Windows.Forms.Padding(5);
             this.tbKatalog.Name = "tbKatalog";
             this.tbKatalog.Padding = new System.Windows.Forms.Padding(5);
-            this.tbKatalog.Size = new System.Drawing.Size(835, 443);
+            this.tbKatalog.Size = new System.Drawing.Size(835, 453);
             this.tbKatalog.TabIndex = 0;
             this.tbKatalog.Text = "Каталог";
             // 
@@ -187,7 +187,7 @@
             this.tcZar.Location = new System.Drawing.Point(5, 5);
             this.tcZar.Name = "tcZar";
             this.tcZar.SelectedIndex = 0;
-            this.tcZar.Size = new System.Drawing.Size(825, 433);
+            this.tcZar.Size = new System.Drawing.Size(825, 443);
             this.tcZar.TabIndex = 1;
             // 
             // tpTcan
@@ -198,7 +198,7 @@
             this.tpTcan.Location = new System.Drawing.Point(4, 31);
             this.tpTcan.Name = "tpTcan";
             this.tpTcan.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTcan.Size = new System.Drawing.Size(817, 398);
+            this.tpTcan.Size = new System.Drawing.Size(817, 408);
             this.tpTcan.TabIndex = 0;
             this.tpTcan.Text = "Ткань";
             this.tpTcan.UseVisualStyleBackColor = true;
@@ -230,18 +230,18 @@
             this.pTcan.Location = new System.Drawing.Point(0, 47);
             this.pTcan.Name = "pTcan";
             this.pTcan.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
-            this.pTcan.Size = new System.Drawing.Size(815, 378);
+            this.pTcan.Size = new System.Drawing.Size(815, 397);
             this.pTcan.TabIndex = 0;
             // 
             // tpFurnit
             // 
+            this.tpFurnit.Controls.Add(this.pFur);
             this.tpFurnit.Controls.Add(this.tbFindFur);
             this.tpFurnit.Controls.Add(this.lFindFur);
-            this.tpFurnit.Controls.Add(this.pFur);
             this.tpFurnit.Location = new System.Drawing.Point(4, 31);
             this.tpFurnit.Name = "tpFurnit";
             this.tpFurnit.Padding = new System.Windows.Forms.Padding(3);
-            this.tpFurnit.Size = new System.Drawing.Size(817, 398);
+            this.tpFurnit.Size = new System.Drawing.Size(817, 408);
             this.tpFurnit.TabIndex = 1;
             this.tpFurnit.Text = "Фурнитура";
             this.tpFurnit.UseVisualStyleBackColor = true;
@@ -264,18 +264,6 @@
             this.lFindFur.TabIndex = 4;
             this.lFindFur.Text = "Поиск";
             // 
-            // pFur
-            // 
-            this.pFur.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pFur.AutoScroll = true;
-            this.pFur.Location = new System.Drawing.Point(1, 39);
-            this.pFur.Name = "pFur";
-            this.pFur.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
-            this.pFur.Size = new System.Drawing.Size(815, 378);
-            this.pFur.TabIndex = 3;
-            // 
             // tpNewZakaz
             // 
             this.tpNewZakaz.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
@@ -291,7 +279,7 @@
             this.tpNewZakaz.Margin = new System.Windows.Forms.Padding(5);
             this.tpNewZakaz.Name = "tpNewZakaz";
             this.tpNewZakaz.Padding = new System.Windows.Forms.Padding(5);
-            this.tpNewZakaz.Size = new System.Drawing.Size(835, 443);
+            this.tpNewZakaz.Size = new System.Drawing.Size(835, 453);
             this.tpNewZakaz.TabIndex = 1;
             this.tpNewZakaz.Text = "Новый заказ";
             // 
@@ -346,7 +334,7 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.ColumnHeadersVisible = false;
             this.dataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
-            this.dataGridView2.Location = new System.Drawing.Point(8, 24);
+            this.dataGridView2.Location = new System.Drawing.Point(7, 24);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -374,7 +362,7 @@
             // textBox1
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(588, 13);
+            this.textBox1.Location = new System.Drawing.Point(587, 13);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(199, 28);
             this.textBox1.TabIndex = 5;
@@ -383,7 +371,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(528, 16);
+            this.label4.Location = new System.Drawing.Point(527, 16);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 22);
             this.label4.TabIndex = 4;
@@ -398,8 +386,20 @@
             this.pHistory.Location = new System.Drawing.Point(10, 52);
             this.pHistory.Name = "pHistory";
             this.pHistory.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
-            this.pHistory.Size = new System.Drawing.Size(815, 392);
+            this.pHistory.Size = new System.Drawing.Size(814, 392);
             this.pHistory.TabIndex = 3;
+            // 
+            // pFur
+            // 
+            this.pFur.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pFur.AutoScroll = true;
+            this.pFur.Location = new System.Drawing.Point(1, 39);
+            this.pFur.Name = "pFur";
+            this.pFur.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
+            this.pFur.Size = new System.Drawing.Size(815, 364);
+            this.pFur.TabIndex = 6;
             // 
             // fZakazchiki
             // 
@@ -459,9 +459,9 @@
         private System.Windows.Forms.Label lFindTcan;
         private System.Windows.Forms.TextBox tbFindFur;
         private System.Windows.Forms.Label lFindFur;
-        private System.Windows.Forms.FlowLayoutPanel pFur;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.FlowLayoutPanel pHistory;
+        private System.Windows.Forms.FlowLayoutPanel pFur;
     }
 }
