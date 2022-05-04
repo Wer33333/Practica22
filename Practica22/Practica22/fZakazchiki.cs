@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Practica22
 {
@@ -300,24 +301,152 @@ namespace Practica22
             }
         }
 
+        public static int EditDistance(string s, string t)
+        {
+            int m = s.Length, n = t.Length;
+            int[,] ed = new int[m, n];
+
+            for (int i = 0; i < m; ++i)
+            {
+                ed[i, 0] = i + 1;
+            }
+
+            for (int j = 0; j < n; ++j)
+            {
+                ed[0, j] = j + 1;
+            }
+
+            for (int j = 1; j < n; ++j)
+            {
+                for (int i = 1; i < m; ++i)
+                {
+                    if (s[i] == t[j])
+                    {
+                        // Операция не требуется
+                        ed[i, j] = ed[i - 1, j - 1];
+                    }
+                    else
+                    {
+                        // Минимум между удалением, вставкой и заменой
+                        ed[i, j] = Math.Min(ed[i - 1, j] + 1,
+                            Math.Min(ed[i, j - 1] + 1, ed[i - 1, j - 1] + 1));
+                    }
+                }
+            }
+
+            return ed[m - 1, n - 1];
+        }
+
         private void fZakazchiki_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "fabricaDataSet.Tcan". При необходимости она может быть перемещена или удалена.
+            this.tcanTableAdapter.Fill(this.fabricaDataSet.Tcan);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "fabricaDataSet.Furnitura". При необходимости она может быть перемещена или удалена.
+            this.furnituraTableAdapter.Fill(this.fabricaDataSet.Furnitura);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "fabricaDataSet.Izdelie". При необходимости она может быть перемещена или удалена.
+            this.izdelieTableAdapter.Fill(this.fabricaDataSet.Izdelie);
+            fAutoriz fa = new fAutoriz();
+            fa.Close();
+            if(fAutoriz.ばかじゃない.Role!="2")
+            {
+                bCsv.Visible = false;
+                bAddIzd.Visible = false;
+                izdelieDataGridView.CellContentDoubleClick -= izdelieDataGridView_CellContentDoubleClick;
+                if (fAutoriz.ばかじゃない.Role == "1")
+                    GetDateHisFromDB();
+                if (fAutoriz.ばかじゃない.Role == "3")
+                {
+                    tcZak.Controls.Remove(tpNewZakaz);
+                    GetDateHisFromDBKlad();
+                }
+            }
+            else
+            {
+                tcZak.Controls.RemoveAt(1);
+                GetDateHisFromDBMan();
+            }
             GetDateTcanFromDB();
             GetDateFurnFromDB();
-            GetDateHisFromDB();
+            GetDateIzdFromDB();
+
             FillPanel();
             
             lZag.Text = fAutoriz.ばかじゃない.FIO;
+
+            fAutoriz.SqlConn($@"select * from Furnitura",true);
+            while (fAutoriz.rd.Read())
+            {
+                newzak nz = new newzak();
+                nz.ID = fAutoriz.rd["idfur"].ToString();
+                nz.Name = fAutoriz.rd["namefur"].ToString();
+                LstZak.Add(nz);
+                namefurComboBox.Items.Add(nz.Name);
+            }
+            fAutoriz.rd.Close();
+            fAutoriz.con.Close();
+
+            fAutoriz.SqlConn($@"select * from Tcan", true);
+            while (fAutoriz.rd.Read())
+            {
+                newzak nz = new newzak();
+                nz.ID = fAutoriz.rd["IDTcan"].ToString();
+                nz.Name = fAutoriz.rd["NameTcan"].ToString();
+                LstZak1.Add(nz);
+                nameTcanComboBox.Items.Add(nz.Name);
+            }
+            fAutoriz.rd.Close();
+            fAutoriz.con.Close();
+
+            fAutoriz.SqlConn($@"select * from Izdelie", true);
+            while (fAutoriz.rd.Read())
+            {
+                newzak nz = new newzak();
+                nz.ID = fAutoriz.rd["IDIzd"].ToString();
+                nz.Name = fAutoriz.rd["NameIzd"].ToString();
+                LstZak2.Add(nz);
+                nameIzdComboBox.Items.Add(nz.Name);
+            }
+            fAutoriz.rd.Close();
+            fAutoriz.con.Close();
+
+        }
+
+        void ChanPhoto()
+        {
+            fAutoriz.SqlConn($@"select Furnitura.photo as 'f',Tcan.photo as 't' from Furnitura,Tcan where Furnitura.namefur='{namefurComboBox.SelectedText}' and Tcan.NameTcan='{nameTcanComboBox.SelectedText}'",true);
+            
+            byte[] ByteImage = (byte[])fAutoriz.rd["f"];
+            pbFur.Image = (Bitmap)(new ImageConverter().ConvertFrom(ByteImage));
+            ByteImage = (byte[])fAutoriz.rd["t"];
+            pbTcan.Image = (Bitmap)(new ImageConverter().ConvertFrom(ByteImage));
+            fAutoriz.rd.Close();
+            fAutoriz.con.Close();
         }
 
         List<Tcan> LstTcan=new List<Tcan>();
         List<Furn> LstFurn = new List<Furn>();
         List<His> LstHis = new List<His>();
+        List<int> LstIzd=new List<int>();
+        List<newzak> LstZak = new List<newzak>();
+        List<newzak> LstZak1 = new List<newzak>();
+        List<newzak> LstZak2 = new List<newzak>();
         ItemPanelTcan CurrentItemTcan;
         ItemPanelFur CurrentItemFur;
         ItemPanelHis CurrentItemHis;
 
         #region GetDB
+
+        void GetDateIzdFromDB()
+        {
+            fAutoriz.SqlConn(@"select IDIzd from Izdelie", true);
+            LstIzd.Clear();
+            while (fAutoriz.rd.Read())
+            {
+                LstIzd.Add(int.Parse(fAutoriz.rd["IDIzd"].ToString()));
+            }
+            fAutoriz.rd.Close();
+            fAutoriz.con.Close();
+        }
 
         void GetDateFurnFromDB()
         {
@@ -339,7 +468,49 @@ namespace Practica22
 
         void GetDateHisFromDB()
         {
-            fAutoriz.SqlConn(@"select (select fam+' '+Name+' '+Otch from Users where IDUser=z.IDZacazchik) as 'zakazchik'
+            fAutoriz.SqlConn($@"select (select fam+' '+Name+' '+Otch from Users where IDUser=z.IDZacazchik) as 'zakazchik'
+      ,(select fam+' '+Name+' '+Otch from Users where IDUser=z.IDManager) as 'manager'
+	  ,f.countfur as 'cntf' ,f.namefur as 'namef' ,f.photo as 'pf',f.idfur as 'idf'
+	  ,i.NameIzd as 'namei' ,i.Length as 'cnti',i.IDIzd as 'idi'
+	  ,t.Photo as 'pt' ,t.NameTcan as 'namet',t.IDTcan as 'idt'
+
+from Furnitura f
+    ,Izdelie i
+	,Tcan t
+	,Zakazi z
+
+where z.IDIzd=i.IDIzd 
+  and z.IDFurn=f.idfur
+  and z.IDTkan=t.IDTcan
+  and z.IDZacazchik={fAutoriz.ばかじゃない.ばか}", true);
+            LstHis.Clear();
+            while (fAutoriz.rd.Read())
+            {
+                His his = new His();
+                his.NameT =fAutoriz.rd["namet"].ToString();
+                his.IDT = fAutoriz.rd["idt"].ToString();
+                byte[] ByteImage = (byte[])fAutoriz.rd["pt"];
+                his.PhotoT = (Bitmap)(new ImageConverter().ConvertFrom(ByteImage));
+                ByteImage = (byte[])fAutoriz.rd["pf"];
+                his.PhotoF = (Bitmap)(new ImageConverter().ConvertFrom(ByteImage));
+                his.CntF = fAutoriz.rd["cntf"].ToString();
+                his.CntI = fAutoriz.rd["cnti"].ToString();
+                his.NameFm = fAutoriz.rd["namef"].ToString();
+                his.NameI = fAutoriz.rd["namei"].ToString();
+                his.IDF = fAutoriz.rd["idf"].ToString();
+                his.IDI = fAutoriz.rd["idi"].ToString();
+                his.Man = fAutoriz.rd["manager"].ToString();
+                his.Zak = fAutoriz.rd["zakazchik"].ToString();
+
+                LstHis.Add(his);
+            }
+            fAutoriz.rd.Close();
+            fAutoriz.con.Close();
+        }
+
+        void GetDateHisFromDBKlad()
+        {
+            fAutoriz.SqlConn($@"select (select fam+' '+Name+' '+Otch from Users where IDUser=z.IDZacazchik) as 'zakazchik'
       ,(select fam+' '+Name+' '+Otch from Users where IDUser=z.IDManager) as 'manager'
 	  ,f.countfur as 'cntf' ,f.namefur as 'namef' ,f.photo as 'pf',f.idfur as 'idf'
 	  ,i.NameIzd as 'namei' ,i.Length as 'cnti',i.IDIzd as 'idi'
@@ -357,7 +528,49 @@ where z.IDIzd=i.IDIzd
             while (fAutoriz.rd.Read())
             {
                 His his = new His();
-                his.NameT =fAutoriz.rd["namet"].ToString();
+                his.NameT = fAutoriz.rd["namet"].ToString();
+                his.IDT = fAutoriz.rd["idt"].ToString();
+                byte[] ByteImage = (byte[])fAutoriz.rd["pt"];
+                his.PhotoT = (Bitmap)(new ImageConverter().ConvertFrom(ByteImage));
+                ByteImage = (byte[])fAutoriz.rd["pf"];
+                his.PhotoF = (Bitmap)(new ImageConverter().ConvertFrom(ByteImage));
+                his.CntF = fAutoriz.rd["cntf"].ToString();
+                his.CntI = fAutoriz.rd["cnti"].ToString();
+                his.NameFm = fAutoriz.rd["namef"].ToString();
+                his.NameI = fAutoriz.rd["namei"].ToString();
+                his.IDF = fAutoriz.rd["idf"].ToString();
+                his.IDI = fAutoriz.rd["idi"].ToString();
+                his.Man = fAutoriz.rd["manager"].ToString();
+                his.Zak = fAutoriz.rd["zakazchik"].ToString();
+
+                LstHis.Add(his);
+            }
+            fAutoriz.rd.Close();
+            fAutoriz.con.Close();
+        }
+
+        void GetDateHisFromDBMan()
+        {
+            fAutoriz.SqlConn($@"select (select fam+' '+Name+' '+Otch from Users where IDUser=z.IDZacazchik) as 'zakazchik'
+      ,(select fam+' '+Name+' '+Otch from Users where IDUser=z.IDManager) as 'manager'
+	  ,f.countfur as 'cntf' ,f.namefur as 'namef' ,f.photo as 'pf',f.idfur as 'idf'
+	  ,i.NameIzd as 'namei' ,i.Length as 'cnti',i.IDIzd as 'idi'
+	  ,t.Photo as 'pt' ,t.NameTcan as 'namet',t.IDTcan as 'idt'
+
+from Furnitura f
+    ,Izdelie i
+	,Tcan t
+	,Zakazi z
+
+where z.IDIzd=i.IDIzd 
+  and z.IDFurn=f.idfur
+  and z.IDTkan=t.IDTcan
+  and z.IDManager={fAutoriz.ばかじゃない.ばか}", true);
+            LstHis.Clear();
+            while (fAutoriz.rd.Read())
+            {
+                His his = new His();
+                his.NameT = fAutoriz.rd["namet"].ToString();
                 his.IDT = fAutoriz.rd["idt"].ToString();
                 byte[] ByteImage = (byte[])fAutoriz.rd["pt"];
                 his.PhotoT = (Bitmap)(new ImageConverter().ConvertFrom(ByteImage));
@@ -402,7 +615,85 @@ where z.IDIzd=i.IDIzd
 
         #region FillPanel
 
-     
+        void livins()
+        {
+            pTcan.Controls.Clear();
+
+            foreach (Tcan tcan in LstTcan)
+            {
+                if (tbFindTcan.Text.Trim() == "")
+                {
+                    ItemPanelTcan ItemPanelTcan = new ItemPanelTcan();
+                    ItemPanelTcan.lColor.Text = tcan.Color;
+                    ItemPanelTcan.lDesc.Text = tcan.Desk;
+                    ItemPanelTcan.lHeigth.Text = tcan.H;
+                    ItemPanelTcan.lWidth.Text = tcan.W;
+                    ItemPanelTcan.lName.Text = tcan.Name;
+                    ItemPanelTcan.IDTcan = tcan.ID;
+
+                    try
+                    {
+                        ItemPanelTcan.pbPhotoTcan.Image = tcan.PhotoTcan;
+                    }
+                    catch
+                    {
+
+                    }
+                    pTcan.Controls.Add(ItemPanelTcan);
+
+                    ItemPanelTcan.Click += ItemPanelTcan_Click;
+                    ItemPanelTcan.pbPhotoTcan.Click += Object_Click;
+                    ItemPanelTcan.lColor.Click += Object_Click;
+                    ItemPanelTcan.lDesc.Click += Object_Click;
+                    ItemPanelTcan.lHeigth.Click += Object_Click;
+                    ItemPanelTcan.lWidth.Click += Object_Click;
+                    ItemPanelTcan.lName.Click += Object_Click;
+
+                    if (pTcan.Controls.Count == 1)
+                    {
+                        CurrentItemTcan = ItemPanelTcan;
+                        CurrentItemTcan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
+                    }
+                }
+                else
+                {
+                    if (EditDistance(tbFindTcan.Text.Trim(), tcan.Name.Split(' ')[1]) <= 3)
+                    {
+                        ItemPanelTcan ItemPanelTcan = new ItemPanelTcan();
+                        ItemPanelTcan.lColor.Text = tcan.Color;
+                        ItemPanelTcan.lDesc.Text = tcan.Desk;
+                        ItemPanelTcan.lHeigth.Text = tcan.H;
+                        ItemPanelTcan.lWidth.Text = tcan.W;
+                        ItemPanelTcan.lName.Text = tcan.Name;
+                        ItemPanelTcan.IDTcan = tcan.ID;
+
+                        try
+                        {
+                            ItemPanelTcan.pbPhotoTcan.Image = tcan.PhotoTcan;
+                        }
+                        catch
+                        {
+
+                        }
+                        pTcan.Controls.Add(ItemPanelTcan);
+
+                        ItemPanelTcan.Click += ItemPanelTcan_Click;
+                        ItemPanelTcan.pbPhotoTcan.Click += Object_Click;
+                        ItemPanelTcan.lColor.Click += Object_Click;
+                        ItemPanelTcan.lDesc.Click += Object_Click;
+                        ItemPanelTcan.lHeigth.Click += Object_Click;
+                        ItemPanelTcan.lWidth.Click += Object_Click;
+                        ItemPanelTcan.lName.Click += Object_Click;
+
+                        if (pTcan.Controls.Count == 1)
+                        {
+                            CurrentItemTcan = ItemPanelTcan;
+                            CurrentItemTcan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
+                        }
+                    }
+                }
+            }
+        }
         
         void FillPanel()
         {
@@ -410,38 +701,38 @@ where z.IDIzd=i.IDIzd
 
             foreach (Tcan tcan in LstTcan)
             {
-                ItemPanelTcan ItemPanelTcan = new ItemPanelTcan();
-                ItemPanelTcan.lColor.Text = tcan.Color;
-                ItemPanelTcan.lDesc.Text = tcan.Desk;
-                ItemPanelTcan.lHeigth.Text = tcan.H;
-                ItemPanelTcan.lWidth.Text = tcan.W;
-                ItemPanelTcan.lName.Text = tcan.Name;
-                ItemPanelTcan.IDTcan= tcan.ID;
+                    ItemPanelTcan ItemPanelTcan = new ItemPanelTcan();
+                    ItemPanelTcan.lColor.Text = tcan.Color;
+                    ItemPanelTcan.lDesc.Text = tcan.Desk;
+                    ItemPanelTcan.lHeigth.Text = tcan.H;
+                    ItemPanelTcan.lWidth.Text = tcan.W;
+                    ItemPanelTcan.lName.Text = tcan.Name;
+                    ItemPanelTcan.IDTcan = tcan.ID;
 
-                try
-                {
-                    ItemPanelTcan.pbPhotoTcan.Image = tcan.PhotoTcan;
+                    try
+                    {
+                        ItemPanelTcan.pbPhotoTcan.Image = tcan.PhotoTcan;
+                    }
+                    catch
+                    {
+
+                    }
+                    pTcan.Controls.Add(ItemPanelTcan);
+
+                    ItemPanelTcan.Click += ItemPanelTcan_Click;
+                    ItemPanelTcan.pbPhotoTcan.Click += Object_Click;
+                    ItemPanelTcan.lColor.Click += Object_Click;
+                    ItemPanelTcan.lDesc.Click += Object_Click;
+                    ItemPanelTcan.lHeigth.Click += Object_Click;
+                    ItemPanelTcan.lWidth.Click += Object_Click;
+                    ItemPanelTcan.lName.Click += Object_Click;
+
+                    if (pTcan.Controls.Count == 1)
+                    {
+                        CurrentItemTcan = ItemPanelTcan;
+                        CurrentItemTcan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
+                    }
                 }
-                catch
-                {
-
-                }
-                pTcan.Controls.Add(ItemPanelTcan);
-
-                ItemPanelTcan.Click += ItemPanelTcan_Click;
-                ItemPanelTcan.pbPhotoTcan.Click += Object_Click;
-                ItemPanelTcan.lColor.Click += Object_Click;
-                ItemPanelTcan.lDesc.Click+=Object_Click;
-                ItemPanelTcan.lHeigth.Click+=Object_Click;
-                ItemPanelTcan.lWidth.Click+=Object_Click;
-                ItemPanelTcan.lName.Click+=Object_Click;
-
-                if(pTcan.Controls.Count == 1)
-                {
-                    CurrentItemTcan = ItemPanelTcan;
-                    CurrentItemTcan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
-                }
-            }
 
             pFur.Controls.Clear();
 
@@ -581,12 +872,67 @@ where z.IDIzd=i.IDIzd
             public Image PhotoT,PhotoF;
         }
 
+        struct newzak
+        {
+            public string ID;
+            public string Name;
+        }
+
 
         private void bProfil_Click(object sender, EventArgs e)
         {
             fProfil fp=new fProfil();
             fp.ShowDialog();
 
+        }
+
+        private void bAddIzd_Click(object sender, EventArgs e)
+        {
+            fManager fm = new fManager();
+            fm.ShowDialog();
+        }
+        public static int row=-1;
+
+        public void izdelieDataGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            row=LstIzd[e.RowIndex]-1;
+            KladMen km=new KladMen();
+            km.ShowDialog();
+        }
+
+        private void bNewZak_Click(object sender, EventArgs e)
+        {
+            if(tbCntFur.Text!=""&&tbCntIzd.Text!="")
+            fAutoriz.SqlConn($@"insert into Zakazi values({LstZak2[nameIzdComboBox.SelectedIndex]},{fAutoriz.ばかじゃない.ばか},(select Fam, Name,Otch from Users,Zakazi group by Role,Fam,Name,Otch,Users.IDUser,Zakazi.IDManager having Role=2 and Users.IDUser=Zakazi.IDManager and min(IDManager)>COUNT(IDManager) ),{LstZak1[nameTcanComboBox.SelectedIndex]},{LstZak[namefurComboBox.SelectedIndex]},{tbCntFur},{tbCntIzd})", false);
+            MessageBox.Show("Заказ добавлен");
+            GetDateHisFromDB();
+        }
+
+        private void tbFindTcan_TextChanged(object sender, EventArgs e)
+        {
+            livins();
+        }
+
+        private void namefurComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ChanPhoto();
+        }
+
+        private void nameTcanComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ChanPhoto();
+        }
+
+        private void bCsv_Click(object sender, EventArgs e)
+        {
+            StreamWriter sw = new StreamWriter(@"D:\заказы.csv",false ,Encoding.UTF8);
+
+            foreach (His item in LstHis)
+            {
+                sw.WriteLine($"{item.NameI};{item.Zak};{item.Man};{item.NameT};{item.NameFm};{item.CntF};{item.CntI}");
+            }
+            sw.Close();
+            
         }
     }
 }

@@ -17,10 +17,32 @@ namespace Practica22
             InitializeComponent();
         }
 
-        private void bProfil_Click(object sender, EventArgs e)
+        private void bSaveIzd_Click(object sender, EventArgs e)
         {
-            fProfil fp = new fProfil();
-            fp.ShowDialog();
+            if (tbH.Text != "" && tbNaz.Text != "" && tbW.Text != "")
+            {
+                foreach (char item in tbH.Text)
+                {
+                    if (char.IsDigit(item) == false)
+                    {
+                        MessageBox.Show("Без лишних символов");
+                        return;
+                    }
+                }
+
+                foreach (char item in tbW.Text)
+                {
+                    if (char.IsDigit(item) == false)
+                    {
+                        MessageBox.Show("Без лишних символов");
+                        return;
+                    }
+                }
+
+                fAutoriz.SqlConn($@"insert into Izdelie(NameIzd,Length,Whidth) values('{tbNaz.Text}',{tbH.Text},{tbW.Text})", false);
+                this.Close();
+            }
+            MessageBox.Show("Заполните все поля");
         }
     }
 }

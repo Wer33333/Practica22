@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label label1;
-            System.Windows.Forms.Label label2;
-            System.Windows.Forms.Label label3;
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label namefurLabel;
+            System.Windows.Forms.Label nameIzdLabel;
+            System.Windows.Forms.Label nameTcanLabel;
             this.pLogo = new System.Windows.Forms.Panel();
             this.bProfil = new System.Windows.Forms.Button();
             this.lZag = new System.Windows.Forms.Label();
@@ -43,22 +44,39 @@
             this.lFindTcan = new System.Windows.Forms.Label();
             this.pTcan = new System.Windows.Forms.FlowLayoutPanel();
             this.tpFurnit = new System.Windows.Forms.TabPage();
-            this.tbFindFur = new System.Windows.Forms.TextBox();
-            this.lFindFur = new System.Windows.Forms.Label();
-            this.tpNewZakaz = new System.Windows.Forms.TabPage();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.tpZakazStory = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pHistory = new System.Windows.Forms.FlowLayoutPanel();
             this.pFur = new System.Windows.Forms.FlowLayoutPanel();
-            label1 = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
-            label3 = new System.Windows.Forms.Label();
+            this.tpIzd = new System.Windows.Forms.TabPage();
+            this.bAddIzd = new System.Windows.Forms.Button();
+            this.izdelieDataGridView = new System.Windows.Forms.DataGridView();
+            this.izdelieBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fabricaDataSet = new Practica22.FabricaDataSet();
+            this.tpNewZakaz = new System.Windows.Forms.TabPage();
+            this.bNewZak = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.nameTcanComboBox = new System.Windows.Forms.ComboBox();
+            this.tcanBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tbCntFur = new System.Windows.Forms.TextBox();
+            this.tbCntIzd = new System.Windows.Forms.TextBox();
+            this.nameIzdComboBox = new System.Windows.Forms.ComboBox();
+            this.namefurComboBox = new System.Windows.Forms.ComboBox();
+            this.furnituraBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tpZakazStory = new System.Windows.Forms.TabPage();
+            this.pHistory = new System.Windows.Forms.FlowLayoutPanel();
+            this.izdelieTableAdapter = new Practica22.FabricaDataSetTableAdapters.IzdelieTableAdapter();
+            this.tableAdapterManager = new Practica22.FabricaDataSetTableAdapters.TableAdapterManager();
+            this.furnituraTableAdapter = new Practica22.FabricaDataSetTableAdapters.FurnituraTableAdapter();
+            this.tcanTableAdapter = new Practica22.FabricaDataSetTableAdapters.TcanTableAdapter();
+            this.pbFur = new System.Windows.Forms.PictureBox();
+            this.pbTcan = new System.Windows.Forms.PictureBox();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bCsv = new System.Windows.Forms.Button();
+            namefurLabel = new System.Windows.Forms.Label();
+            nameIzdLabel = new System.Windows.Forms.Label();
+            nameTcanLabel = new System.Windows.Forms.Label();
             this.pLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tcZak.SuspendLayout();
@@ -66,40 +84,44 @@
             this.tcZar.SuspendLayout();
             this.tpTcan.SuspendLayout();
             this.tpFurnit.SuspendLayout();
+            this.tpIzd.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.izdelieDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.izdelieBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fabricaDataSet)).BeginInit();
             this.tpNewZakaz.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tcanBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.furnituraBindingSource)).BeginInit();
             this.tpZakazStory.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFur)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTcan)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // namefurLabel
             // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(42, 357);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(72, 22);
-            label1.TabIndex = 22;
-            label1.Text = "countfur:";
+            namefurLabel.AutoSize = true;
+            namefurLabel.Location = new System.Drawing.Point(71, 34);
+            namefurLabel.Name = "namefurLabel";
+            namefurLabel.Size = new System.Drawing.Size(110, 28);
+            namefurLabel.TabIndex = 0;
+            namefurLabel.Text = "Фурнитура";
             // 
-            // label2
+            // nameIzdLabel
             // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(32, 391);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(83, 22);
-            label2.TabIndex = 20;
-            label2.Text = "Count Izd:";
+            nameIzdLabel.AutoSize = true;
+            nameIzdLabel.Location = new System.Drawing.Point(71, 168);
+            nameIzdLabel.Name = "nameIzdLabel";
+            nameIzdLabel.Size = new System.Drawing.Size(90, 28);
+            nameIzdLabel.TabIndex = 2;
+            nameIzdLabel.Text = "Изделие";
             // 
-            // label3
+            // nameTcanLabel
             // 
-            label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(27, 324);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(87, 22);
-            label3.TabIndex = 17;
-            label3.Text = "Name Izd:";
+            nameTcanLabel.AutoSize = true;
+            nameTcanLabel.Location = new System.Drawing.Point(71, 123);
+            nameTcanLabel.Name = "nameTcanLabel";
+            nameTcanLabel.Size = new System.Drawing.Size(65, 28);
+            nameTcanLabel.TabIndex = 7;
+            nameTcanLabel.Text = "Ткань";
             // 
             // pLogo
             // 
@@ -136,7 +158,7 @@
             this.lZag.Location = new System.Drawing.Point(227, 47);
             this.lZag.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lZag.Name = "lZag";
-            this.lZag.Size = new System.Drawing.Size(147, 31);
+            this.lZag.Size = new System.Drawing.Size(184, 39);
             this.lZag.TabIndex = 1;
             this.lZag.Text = "Заказчики";
             // 
@@ -171,11 +193,11 @@
             // 
             this.tbKatalog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(160)))), ((int)(((byte)(26)))));
             this.tbKatalog.Controls.Add(this.tcZar);
-            this.tbKatalog.Location = new System.Drawing.Point(4, 31);
+            this.tbKatalog.Location = new System.Drawing.Point(4, 37);
             this.tbKatalog.Margin = new System.Windows.Forms.Padding(5);
             this.tbKatalog.Name = "tbKatalog";
             this.tbKatalog.Padding = new System.Windows.Forms.Padding(5);
-            this.tbKatalog.Size = new System.Drawing.Size(835, 453);
+            this.tbKatalog.Size = new System.Drawing.Size(835, 447);
             this.tbKatalog.TabIndex = 0;
             this.tbKatalog.Text = "Каталог";
             // 
@@ -183,11 +205,12 @@
             // 
             this.tcZar.Controls.Add(this.tpTcan);
             this.tcZar.Controls.Add(this.tpFurnit);
+            this.tcZar.Controls.Add(this.tpIzd);
             this.tcZar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcZar.Location = new System.Drawing.Point(5, 5);
             this.tcZar.Name = "tcZar";
             this.tcZar.SelectedIndex = 0;
-            this.tcZar.Size = new System.Drawing.Size(825, 443);
+            this.tcZar.Size = new System.Drawing.Size(825, 437);
             this.tcZar.TabIndex = 1;
             // 
             // tpTcan
@@ -195,10 +218,10 @@
             this.tpTcan.Controls.Add(this.tbFindTcan);
             this.tpTcan.Controls.Add(this.lFindTcan);
             this.tpTcan.Controls.Add(this.pTcan);
-            this.tpTcan.Location = new System.Drawing.Point(4, 31);
+            this.tpTcan.Location = new System.Drawing.Point(4, 37);
             this.tpTcan.Name = "tpTcan";
             this.tpTcan.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTcan.Size = new System.Drawing.Size(817, 408);
+            this.tpTcan.Size = new System.Drawing.Size(817, 396);
             this.tpTcan.TabIndex = 0;
             this.tpTcan.Text = "Ткань";
             this.tpTcan.UseVisualStyleBackColor = true;
@@ -206,10 +229,11 @@
             // tbFindTcan
             // 
             this.tbFindTcan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbFindTcan.Location = new System.Drawing.Point(578, 8);
+            this.tbFindTcan.Location = new System.Drawing.Point(590, 8);
             this.tbFindTcan.Name = "tbFindTcan";
-            this.tbFindTcan.Size = new System.Drawing.Size(199, 28);
+            this.tbFindTcan.Size = new System.Drawing.Size(199, 33);
             this.tbFindTcan.TabIndex = 2;
+            this.tbFindTcan.TextChanged += new System.EventHandler(this.tbFindTcan_TextChanged);
             // 
             // lFindTcan
             // 
@@ -217,7 +241,7 @@
             this.lFindTcan.AutoSize = true;
             this.lFindTcan.Location = new System.Drawing.Point(518, 11);
             this.lFindTcan.Name = "lFindTcan";
-            this.lFindTcan.Size = new System.Drawing.Size(54, 22);
+            this.lFindTcan.Size = new System.Drawing.Size(66, 28);
             this.lFindTcan.TabIndex = 1;
             this.lFindTcan.Text = "Поиск";
             // 
@@ -230,164 +254,19 @@
             this.pTcan.Location = new System.Drawing.Point(0, 47);
             this.pTcan.Name = "pTcan";
             this.pTcan.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
-            this.pTcan.Size = new System.Drawing.Size(815, 397);
+            this.pTcan.Size = new System.Drawing.Size(815, 343);
             this.pTcan.TabIndex = 0;
             // 
             // tpFurnit
             // 
             this.tpFurnit.Controls.Add(this.pFur);
-            this.tpFurnit.Controls.Add(this.tbFindFur);
-            this.tpFurnit.Controls.Add(this.lFindFur);
-            this.tpFurnit.Location = new System.Drawing.Point(4, 31);
+            this.tpFurnit.Location = new System.Drawing.Point(4, 37);
             this.tpFurnit.Name = "tpFurnit";
             this.tpFurnit.Padding = new System.Windows.Forms.Padding(3);
-            this.tpFurnit.Size = new System.Drawing.Size(817, 408);
+            this.tpFurnit.Size = new System.Drawing.Size(817, 396);
             this.tpFurnit.TabIndex = 1;
             this.tpFurnit.Text = "Фурнитура";
             this.tpFurnit.UseVisualStyleBackColor = true;
-            // 
-            // tbFindFur
-            // 
-            this.tbFindFur.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbFindFur.Location = new System.Drawing.Point(577, 5);
-            this.tbFindFur.Name = "tbFindFur";
-            this.tbFindFur.Size = new System.Drawing.Size(199, 28);
-            this.tbFindFur.TabIndex = 5;
-            // 
-            // lFindFur
-            // 
-            this.lFindFur.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lFindFur.AutoSize = true;
-            this.lFindFur.Location = new System.Drawing.Point(517, 8);
-            this.lFindFur.Name = "lFindFur";
-            this.lFindFur.Size = new System.Drawing.Size(54, 22);
-            this.lFindFur.TabIndex = 4;
-            this.lFindFur.Text = "Поиск";
-            // 
-            // tpNewZakaz
-            // 
-            this.tpNewZakaz.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
-            this.tpNewZakaz.Controls.Add(label1);
-            this.tpNewZakaz.Controls.Add(this.numericUpDown1);
-            this.tpNewZakaz.Controls.Add(label2);
-            this.tpNewZakaz.Controls.Add(this.numericUpDown2);
-            this.tpNewZakaz.Controls.Add(this.dataGridView1);
-            this.tpNewZakaz.Controls.Add(label3);
-            this.tpNewZakaz.Controls.Add(this.comboBox1);
-            this.tpNewZakaz.Controls.Add(this.dataGridView2);
-            this.tpNewZakaz.Location = new System.Drawing.Point(4, 31);
-            this.tpNewZakaz.Margin = new System.Windows.Forms.Padding(5);
-            this.tpNewZakaz.Name = "tpNewZakaz";
-            this.tpNewZakaz.Padding = new System.Windows.Forms.Padding(5);
-            this.tpNewZakaz.Size = new System.Drawing.Size(835, 453);
-            this.tpNewZakaz.TabIndex = 1;
-            this.tpNewZakaz.Text = "Новый заказ";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(120, 357);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 28);
-            this.numericUpDown1.TabIndex = 23;
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Location = new System.Drawing.Point(121, 391);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 28);
-            this.numericUpDown2.TabIndex = 21;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.ColumnHeadersVisible = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
-            this.dataGridView1.Location = new System.Drawing.Point(447, 24);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(370, 278);
-            this.dataGridView1.TabIndex = 19;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(120, 321);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 30);
-            this.comboBox1.TabIndex = 18;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AllowUserToResizeColumns = false;
-            this.dataGridView2.AllowUserToResizeRows = false;
-            this.dataGridView2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
-            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.ColumnHeadersVisible = false;
-            this.dataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
-            this.dataGridView2.Location = new System.Drawing.Point(7, 24);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.RowHeadersWidth = 10;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(423, 278);
-            this.dataGridView2.TabIndex = 16;
-            // 
-            // tpZakazStory
-            // 
-            this.tpZakazStory.AutoScroll = true;
-            this.tpZakazStory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
-            this.tpZakazStory.Controls.Add(this.textBox1);
-            this.tpZakazStory.Controls.Add(this.label4);
-            this.tpZakazStory.Controls.Add(this.pHistory);
-            this.tpZakazStory.Location = new System.Drawing.Point(4, 31);
-            this.tpZakazStory.Margin = new System.Windows.Forms.Padding(5);
-            this.tpZakazStory.Name = "tpZakazStory";
-            this.tpZakazStory.Padding = new System.Windows.Forms.Padding(5);
-            this.tpZakazStory.Size = new System.Drawing.Size(835, 453);
-            this.tpZakazStory.TabIndex = 2;
-            this.tpZakazStory.Text = "История заказов";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(587, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(199, 28);
-            this.textBox1.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(527, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 22);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Поиск";
-            // 
-            // pHistory
-            // 
-            this.pHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pHistory.AutoScroll = true;
-            this.pHistory.Location = new System.Drawing.Point(10, 52);
-            this.pHistory.Name = "pHistory";
-            this.pHistory.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
-            this.pHistory.Size = new System.Drawing.Size(814, 392);
-            this.pHistory.TabIndex = 3;
             // 
             // pFur
             // 
@@ -395,15 +274,305 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pFur.AutoScroll = true;
-            this.pFur.Location = new System.Drawing.Point(1, 39);
+            this.pFur.Location = new System.Drawing.Point(1, 6);
             this.pFur.Name = "pFur";
             this.pFur.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
-            this.pFur.Size = new System.Drawing.Size(815, 364);
+            this.pFur.Size = new System.Drawing.Size(815, 387);
             this.pFur.TabIndex = 6;
+            // 
+            // tpIzd
+            // 
+            this.tpIzd.BackColor = System.Drawing.Color.White;
+            this.tpIzd.Controls.Add(this.bAddIzd);
+            this.tpIzd.Controls.Add(this.izdelieDataGridView);
+            this.tpIzd.Location = new System.Drawing.Point(4, 37);
+            this.tpIzd.Name = "tpIzd";
+            this.tpIzd.Padding = new System.Windows.Forms.Padding(3);
+            this.tpIzd.Size = new System.Drawing.Size(817, 396);
+            this.tpIzd.TabIndex = 2;
+            this.tpIzd.Text = "Изделие";
+            // 
+            // bAddIzd
+            // 
+            this.bAddIzd.AutoSize = true;
+            this.bAddIzd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
+            this.bAddIzd.Location = new System.Drawing.Point(6, 358);
+            this.bAddIzd.Name = "bAddIzd";
+            this.bAddIzd.Size = new System.Drawing.Size(194, 38);
+            this.bAddIzd.TabIndex = 1;
+            this.bAddIzd.Text = "Добавить изделие";
+            this.bAddIzd.UseVisualStyleBackColor = false;
+            this.bAddIzd.Click += new System.EventHandler(this.bAddIzd_Click);
+            // 
+            // izdelieDataGridView
+            // 
+            this.izdelieDataGridView.AllowUserToAddRows = false;
+            this.izdelieDataGridView.AllowUserToDeleteRows = false;
+            this.izdelieDataGridView.AutoGenerateColumns = false;
+            this.izdelieDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.izdelieDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.izdelieDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.izdelieDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.izdelieDataGridView.ColumnHeadersVisible = false;
+            this.izdelieDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.izdelieDataGridView.DataSource = this.izdelieBindingSource;
+            this.izdelieDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
+            this.izdelieDataGridView.Location = new System.Drawing.Point(6, 6);
+            this.izdelieDataGridView.Name = "izdelieDataGridView";
+            this.izdelieDataGridView.ReadOnly = true;
+            this.izdelieDataGridView.RowHeadersVisible = false;
+            this.izdelieDataGridView.RowHeadersWidth = 51;
+            this.izdelieDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.izdelieDataGridView.Size = new System.Drawing.Size(805, 346);
+            this.izdelieDataGridView.TabIndex = 0;
+            this.izdelieDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.izdelieDataGridView_CellContentDoubleClick);
+            // 
+            // izdelieBindingSource
+            // 
+            this.izdelieBindingSource.DataMember = "Izdelie";
+            this.izdelieBindingSource.DataSource = this.fabricaDataSet;
+            // 
+            // fabricaDataSet
+            // 
+            this.fabricaDataSet.DataSetName = "FabricaDataSet";
+            this.fabricaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tpNewZakaz
+            // 
+            this.tpNewZakaz.AutoScroll = true;
+            this.tpNewZakaz.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
+            this.tpNewZakaz.Controls.Add(this.pbTcan);
+            this.tpNewZakaz.Controls.Add(this.pbFur);
+            this.tpNewZakaz.Controls.Add(this.bNewZak);
+            this.tpNewZakaz.Controls.Add(this.label2);
+            this.tpNewZakaz.Controls.Add(this.label1);
+            this.tpNewZakaz.Controls.Add(nameTcanLabel);
+            this.tpNewZakaz.Controls.Add(this.nameTcanComboBox);
+            this.tpNewZakaz.Controls.Add(this.tbCntFur);
+            this.tpNewZakaz.Controls.Add(this.tbCntIzd);
+            this.tpNewZakaz.Controls.Add(nameIzdLabel);
+            this.tpNewZakaz.Controls.Add(this.nameIzdComboBox);
+            this.tpNewZakaz.Controls.Add(namefurLabel);
+            this.tpNewZakaz.Controls.Add(this.namefurComboBox);
+            this.tpNewZakaz.Location = new System.Drawing.Point(4, 37);
+            this.tpNewZakaz.Margin = new System.Windows.Forms.Padding(5);
+            this.tpNewZakaz.Name = "tpNewZakaz";
+            this.tpNewZakaz.Padding = new System.Windows.Forms.Padding(5);
+            this.tpNewZakaz.Size = new System.Drawing.Size(835, 447);
+            this.tpNewZakaz.TabIndex = 1;
+            this.tpNewZakaz.Text = "Новый заказ";
+            // 
+            // bNewZak
+            // 
+            this.bNewZak.AutoSize = true;
+            this.bNewZak.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
+            this.bNewZak.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bNewZak.Font = new System.Drawing.Font("Tw Cen MT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bNewZak.Location = new System.Drawing.Point(5, 366);
+            this.bNewZak.Name = "bNewZak";
+            this.bNewZak.Size = new System.Drawing.Size(825, 76);
+            this.bNewZak.TabIndex = 11;
+            this.bNewZak.Text = "Новый заказ";
+            this.bNewZak.UseVisualStyleBackColor = false;
+            this.bNewZak.Click += new System.EventHandler(this.bNewZak_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(14, 79);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(181, 28);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Кол-во фурнитуры";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(30, 213);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(160, 28);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Кол-во Изделий";
+            // 
+            // nameTcanComboBox
+            // 
+            this.nameTcanComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tcanBindingSource, "NameTcan", true));
+            this.nameTcanComboBox.Font = new System.Drawing.Font("Yu Gothic UI", 13.8F);
+            this.nameTcanComboBox.FormattingEnabled = true;
+            this.nameTcanComboBox.Location = new System.Drawing.Point(208, 120);
+            this.nameTcanComboBox.Name = "nameTcanComboBox";
+            this.nameTcanComboBox.Size = new System.Drawing.Size(317, 39);
+            this.nameTcanComboBox.TabIndex = 8;
+            this.nameTcanComboBox.SelectedIndexChanged += new System.EventHandler(this.nameTcanComboBox_SelectedIndexChanged);
+            // 
+            // tcanBindingSource
+            // 
+            this.tcanBindingSource.DataMember = "Tcan";
+            this.tcanBindingSource.DataSource = this.fabricaDataSet;
+            // 
+            // tbCntFur
+            // 
+            this.tbCntFur.Font = new System.Drawing.Font("Yu Gothic UI", 13.8F);
+            this.tbCntFur.Location = new System.Drawing.Point(208, 76);
+            this.tbCntFur.Name = "tbCntFur";
+            this.tbCntFur.Size = new System.Drawing.Size(317, 38);
+            this.tbCntFur.TabIndex = 7;
+            // 
+            // tbCntIzd
+            // 
+            this.tbCntIzd.Font = new System.Drawing.Font("Yu Gothic UI", 13.8F);
+            this.tbCntIzd.Location = new System.Drawing.Point(208, 210);
+            this.tbCntIzd.Name = "tbCntIzd";
+            this.tbCntIzd.Size = new System.Drawing.Size(317, 38);
+            this.tbCntIzd.TabIndex = 6;
+            // 
+            // nameIzdComboBox
+            // 
+            this.nameIzdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.izdelieBindingSource, "NameIzd", true));
+            this.nameIzdComboBox.Font = new System.Drawing.Font("Yu Gothic UI", 13.8F);
+            this.nameIzdComboBox.FormattingEnabled = true;
+            this.nameIzdComboBox.Location = new System.Drawing.Point(208, 165);
+            this.nameIzdComboBox.Name = "nameIzdComboBox";
+            this.nameIzdComboBox.Size = new System.Drawing.Size(317, 39);
+            this.nameIzdComboBox.TabIndex = 3;
+            // 
+            // namefurComboBox
+            // 
+            this.namefurComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.furnituraBindingSource, "namefur", true));
+            this.namefurComboBox.Font = new System.Drawing.Font("Yu Gothic UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.namefurComboBox.FormattingEnabled = true;
+            this.namefurComboBox.Location = new System.Drawing.Point(208, 31);
+            this.namefurComboBox.Name = "namefurComboBox";
+            this.namefurComboBox.Size = new System.Drawing.Size(317, 39);
+            this.namefurComboBox.TabIndex = 1;
+            this.namefurComboBox.SelectedIndexChanged += new System.EventHandler(this.namefurComboBox_SelectedIndexChanged);
+            // 
+            // furnituraBindingSource
+            // 
+            this.furnituraBindingSource.DataMember = "Furnitura";
+            this.furnituraBindingSource.DataSource = this.fabricaDataSet;
+            // 
+            // tpZakazStory
+            // 
+            this.tpZakazStory.AutoScroll = true;
+            this.tpZakazStory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
+            this.tpZakazStory.Controls.Add(this.bCsv);
+            this.tpZakazStory.Controls.Add(this.pHistory);
+            this.tpZakazStory.Location = new System.Drawing.Point(4, 37);
+            this.tpZakazStory.Margin = new System.Windows.Forms.Padding(5);
+            this.tpZakazStory.Name = "tpZakazStory";
+            this.tpZakazStory.Padding = new System.Windows.Forms.Padding(5);
+            this.tpZakazStory.Size = new System.Drawing.Size(835, 447);
+            this.tpZakazStory.TabIndex = 2;
+            this.tpZakazStory.Text = "История заказов";
+            // 
+            // pHistory
+            // 
+            this.pHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pHistory.AutoScroll = true;
+            this.pHistory.Location = new System.Drawing.Point(8, 8);
+            this.pHistory.Name = "pHistory";
+            this.pHistory.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
+            this.pHistory.Size = new System.Drawing.Size(814, 392);
+            this.pHistory.TabIndex = 3;
+            // 
+            // izdelieTableAdapter
+            // 
+            this.izdelieTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.UpdateOrder = Practica22.FabricaDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // furnituraTableAdapter
+            // 
+            this.furnituraTableAdapter.ClearBeforeFill = true;
+            // 
+            // tcanTableAdapter
+            // 
+            this.tcanTableAdapter.ClearBeforeFill = true;
+            // 
+            // pbFur
+            // 
+            this.pbFur.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.furnituraBindingSource, "photo", true));
+            this.pbFur.Location = new System.Drawing.Point(605, 31);
+            this.pbFur.Name = "pbFur";
+            this.pbFur.Size = new System.Drawing.Size(140, 140);
+            this.pbFur.TabIndex = 12;
+            this.pbFur.TabStop = false;
+            // 
+            // pbTcan
+            // 
+            this.pbTcan.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.tcanBindingSource, "Photo", true));
+            this.pbTcan.Location = new System.Drawing.Point(605, 177);
+            this.pbTcan.Name = "pbTcan";
+            this.pbTcan.Size = new System.Drawing.Size(140, 140);
+            this.pbTcan.TabIndex = 14;
+            this.pbTcan.TabStop = false;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "NameIzd";
+            this.dataGridViewTextBoxColumn1.HeaderText = "NameIzd";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "IDIzd";
+            this.dataGridViewTextBoxColumn2.HeaderText = "IDIzd";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            this.dataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Length";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Length";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn3.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Whidth";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Whidth";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn4.Width = 125;
+            // 
+            // bCsv
+            // 
+            this.bCsv.AutoSize = true;
+            this.bCsv.Location = new System.Drawing.Point(8, 406);
+            this.bCsv.Name = "bCsv";
+            this.bCsv.Size = new System.Drawing.Size(224, 38);
+            this.bCsv.TabIndex = 4;
+            this.bCsv.Text = "Экспорт данных в csv";
+            this.bCsv.UseVisualStyleBackColor = true;
+            this.bCsv.Click += new System.EventHandler(this.bCsv_Click);
             // 
             // fZakazchiki
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(843, 649);
@@ -412,7 +581,6 @@
             this.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "fZakazchiki";
-            this.Text = "Заказчики";
             this.Load += new System.EventHandler(this.fZakazchiki_Load);
             this.pLogo.ResumeLayout(false);
             this.pLogo.PerformLayout();
@@ -423,15 +591,19 @@
             this.tpTcan.ResumeLayout(false);
             this.tpTcan.PerformLayout();
             this.tpFurnit.ResumeLayout(false);
-            this.tpFurnit.PerformLayout();
+            this.tpIzd.ResumeLayout(false);
+            this.tpIzd.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.izdelieDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.izdelieBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fabricaDataSet)).EndInit();
             this.tpNewZakaz.ResumeLayout(false);
             this.tpNewZakaz.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tcanBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.furnituraBindingSource)).EndInit();
             this.tpZakazStory.ResumeLayout(false);
             this.tpZakazStory.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFur)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTcan)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -445,11 +617,6 @@
         private System.Windows.Forms.TabPage tbKatalog;
         private System.Windows.Forms.TabPage tpNewZakaz;
         private System.Windows.Forms.TabPage tpZakazStory;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button bProfil;
         private System.Windows.Forms.TabControl tcZar;
         private System.Windows.Forms.TabPage tpTcan;
@@ -457,11 +624,33 @@
         private System.Windows.Forms.FlowLayoutPanel pTcan;
         private System.Windows.Forms.TextBox tbFindTcan;
         private System.Windows.Forms.Label lFindTcan;
-        private System.Windows.Forms.TextBox tbFindFur;
-        private System.Windows.Forms.Label lFindFur;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.FlowLayoutPanel pHistory;
         private System.Windows.Forms.FlowLayoutPanel pFur;
+        private System.Windows.Forms.TabPage tpIzd;
+        private FabricaDataSet fabricaDataSet;
+        private System.Windows.Forms.BindingSource izdelieBindingSource;
+        private FabricaDataSetTableAdapters.IzdelieTableAdapter izdelieTableAdapter;
+        private FabricaDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.DataGridView izdelieDataGridView;
+        private System.Windows.Forms.Button bAddIzd;
+        private System.Windows.Forms.BindingSource furnituraBindingSource;
+        private FabricaDataSetTableAdapters.FurnituraTableAdapter furnituraTableAdapter;
+        private System.Windows.Forms.ComboBox nameIzdComboBox;
+        private System.Windows.Forms.ComboBox namefurComboBox;
+        private System.Windows.Forms.BindingSource tcanBindingSource;
+        private FabricaDataSetTableAdapters.TcanTableAdapter tcanTableAdapter;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox nameTcanComboBox;
+        private System.Windows.Forms.TextBox tbCntFur;
+        private System.Windows.Forms.TextBox tbCntIzd;
+        private System.Windows.Forms.Button bNewZak;
+        private System.Windows.Forms.PictureBox pbTcan;
+        private System.Windows.Forms.PictureBox pbFur;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.Button bCsv;
     }
 }

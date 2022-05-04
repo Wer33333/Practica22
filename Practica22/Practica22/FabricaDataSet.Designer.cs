@@ -662,6 +662,12 @@ namespace Practica22 {
             
             private global::System.Data.DataColumn columnNameIzd;
             
+            private global::System.Data.DataColumn columnIDIzd;
+            
+            private global::System.Data.DataColumn columnLength;
+            
+            private global::System.Data.DataColumn columnWhidth;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public IzdelieDataTable() {
@@ -705,6 +711,30 @@ namespace Practica22 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn IDIzdColumn {
+                get {
+                    return this.columnIDIzd;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn LengthColumn {
+                get {
+                    return this.columnLength;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn WhidthColumn {
+                get {
+                    return this.columnWhidth;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -740,13 +770,23 @@ namespace Practica22 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public IzdelieRow AddIzdelieRow(string NameIzd) {
+            public IzdelieRow AddIzdelieRow(string NameIzd, int IDIzd, int Length, int Whidth) {
                 IzdelieRow rowIzdelieRow = ((IzdelieRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        NameIzd};
+                        NameIzd,
+                        IDIzd,
+                        Length,
+                        Whidth};
                 rowIzdelieRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowIzdelieRow);
                 return rowIzdelieRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public IzdelieRow FindByIDIzd(int IDIzd) {
+                return ((IzdelieRow)(this.Rows.Find(new object[] {
+                            IDIzd})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -767,6 +807,9 @@ namespace Practica22 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnNameIzd = base.Columns["NameIzd"];
+                this.columnIDIzd = base.Columns["IDIzd"];
+                this.columnLength = base.Columns["Length"];
+                this.columnWhidth = base.Columns["Whidth"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -774,7 +817,17 @@ namespace Practica22 {
             private void InitClass() {
                 this.columnNameIzd = new global::System.Data.DataColumn("NameIzd", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNameIzd);
+                this.columnIDIzd = new global::System.Data.DataColumn("IDIzd", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIDIzd);
+                this.columnLength = new global::System.Data.DataColumn("Length", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLength);
+                this.columnWhidth = new global::System.Data.DataColumn("Whidth", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWhidth);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnIDIzd}, true));
                 this.columnNameIzd.MaxLength = 50;
+                this.columnIDIzd.AllowDBNull = false;
+                this.columnIDIzd.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1541,6 +1594,49 @@ namespace Practica22 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int IDIzd {
+                get {
+                    return ((int)(this[this.tableIzdelie.IDIzdColumn]));
+                }
+                set {
+                    this[this.tableIzdelie.IDIzdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Length {
+                get {
+                    try {
+                        return ((int)(this[this.tableIzdelie.LengthColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Length\' в таблице \'Izdelie\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIzdelie.LengthColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Whidth {
+                get {
+                    try {
+                        return ((int)(this[this.tableIzdelie.WhidthColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Whidth\' в таблице \'Izdelie\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIzdelie.WhidthColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsNameIzdNull() {
                 return this.IsNull(this.tableIzdelie.NameIzdColumn);
             }
@@ -1549,6 +1645,30 @@ namespace Practica22 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetNameIzdNull() {
                 this[this.tableIzdelie.NameIzdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsLengthNull() {
+                return this.IsNull(this.tableIzdelie.LengthColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetLengthNull() {
+                this[this.tableIzdelie.LengthColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsWhidthNull() {
+                return this.IsNull(this.tableIzdelie.WhidthColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetWhidthNull() {
+                this[this.tableIzdelie.WhidthColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2097,6 +2217,9 @@ namespace Practica22.FabricaDataSetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Izdelie";
             tableMapping.ColumnMappings.Add("NameIzd", "NameIzd");
+            tableMapping.ColumnMappings.Add("IDIzd", "IDIzd");
+            tableMapping.ColumnMappings.Add("Length", "Length");
+            tableMapping.ColumnMappings.Add("Whidth", "Whidth");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2113,7 +2236,7 @@ namespace Practica22.FabricaDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT NameIzd FROM dbo.Izdelie";
+            this._commandCollection[0].CommandText = "SELECT * FROM dbo.Izdelie";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

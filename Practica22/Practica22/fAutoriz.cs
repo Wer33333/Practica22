@@ -122,18 +122,9 @@ namespace Practica22
             con.Close();
             rd.Close();
 
-            if (ばかじゃない.Role == "1")
-            {
                 this.Hide();
                 fZakazchiki fz = new fZakazchiki();
                 fz.Show();
-            }
-            if (ばかじゃない.Role == "2")
-            {
-                this.Hide();
-                fZakazchiki fz = new fZakazchiki();
-                fz.Show();
-            }
 
         }
 
