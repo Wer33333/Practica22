@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="PassCheck">
       <HintPath>..\..\..\VS2019\решение\PassCheck\PassCheck\bin\Debug\PassCheck.dll</HintPath>
     </Reference>
@@ -47,6 +51,12 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Xceed.Document.NET, Version=2.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.2.1.0\lib\net40\Xceed.Document.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Words.NET, Version=2.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.2.1.0\lib\net40\Xceed.Words.NET.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FabricaDataSet.Designer.cs">
@@ -84,6 +94,12 @@
     <Compile Include="fReg.Designer.cs">
       <DependentUpon>fReg.cs</DependentUpon>
     </Compile>
+    <Compile Include="fSpis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fSpis.Designer.cs">
+      <DependentUpon>fSpis.cs</DependentUpon>
+    </Compile>
     <Compile Include="KladMen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +129,9 @@
     <EmbeddedResource Include="fReg.resx">
       <DependentUpon>fReg.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fSpis.resx">
+      <DependentUpon>fSpis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KladMen.resx">
       <DependentUpon>KladMen.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +159,7 @@
     <None Include="FabricaDataSet.xss">
       <DependentUpon>FabricaDataSet.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

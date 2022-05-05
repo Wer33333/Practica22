@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Xceed.Words.NET;
+using Xceed.Document.NET;
+using Image = System.Drawing.Image;
+using System.Diagnostics;
 
 namespace Practica22
 {
@@ -19,7 +23,7 @@ namespace Practica22
         }
 
 
-        class ItemPanelFur : Panel
+        class ItemPanelFr : Panel
         {
 
             public System.Windows.Forms.Panel pf;
@@ -27,7 +31,8 @@ namespace Practica22
             public System.Windows.Forms.Label lNazvFur;
             public System.Windows.Forms.PictureBox pbFur;
             public string IDFur;
-            public ItemPanelFur()
+            public bool isSelected;
+            public ItemPanelFr()
             {
                 this.pf = new System.Windows.Forms.Panel();
                 this.lCntFur = new System.Windows.Forms.Label();
@@ -75,7 +80,7 @@ namespace Practica22
             }
         }
 
-        class ItemPanelHis : Panel
+        class ItemPanelHis1 : Panel
         {
 
             public System.Windows.Forms.Panel pZ;
@@ -90,7 +95,7 @@ namespace Practica22
             public System.Windows.Forms.PictureBox PbF;
             public string IDI, IDT, IDF;
 
-            public ItemPanelHis()
+            public ItemPanelHis1()
             {
                 this.pZ = new System.Windows.Forms.Panel();
                 this.PbF = new System.Windows.Forms.PictureBox();
@@ -215,6 +220,7 @@ namespace Practica22
             public System.Windows.Forms.Label lName;
             public System.Windows.Forms.PictureBox pbPhotoTcan;
             public string IDTcan;
+            public bool isSelected;
             #endregion
             public ItemPanelTcan()
             {
@@ -347,10 +353,12 @@ namespace Practica22
             this.izdelieTableAdapter.Fill(this.fabricaDataSet.Izdelie);
             fAutoriz fa = new fAutoriz();
             fa.Close();
-            if(fAutoriz.ばかじゃない.Role!="2")
+            ManagerExport();
+            if (fAutoriz.ばかじゃない.Role != "2")
             {
                 bCsv.Visible = false;
                 bAddIzd.Visible = false;
+                bWord.Visible = false;
                 izdelieDataGridView.CellContentDoubleClick -= izdelieDataGridView_CellContentDoubleClick;
                 if (fAutoriz.ばかじゃない.Role == "1")
                     GetDateHisFromDB();
@@ -359,21 +367,32 @@ namespace Practica22
                     tcZak.Controls.Remove(tpNewZakaz);
                     GetDateHisFromDBKlad();
                 }
+                if (fAutoriz.ばかじゃない.Role != "3")
+                {
+                    bAddFT.Visible = false;
+                    bAddIzd.Visible = false;
+                }
+
             }
             else
             {
                 tcZak.Controls.RemoveAt(1);
                 GetDateHisFromDBMan();
             }
-            GetDateTcanFromDB();
-            GetDateFurnFromDB();
-            GetDateIzdFromDB();
+            try
+            {
+                GetDateFurnFromDB();
+                GetDateTcanFromDB();
+                GetDateIzdFromDB();
 
-            FillPanel();
-            
+                FillPanel();
+            }
+            catch
+            { }
+
             lZag.Text = fAutoriz.ばかじゃない.FIO;
 
-            fAutoriz.SqlConn($@"select * from Furnitura",true);
+            fAutoriz.SqlConn($@"select * from Furnitura", true);
             while (fAutoriz.rd.Read())
             {
                 newzak nz = new newzak();
@@ -413,8 +432,8 @@ namespace Practica22
 
         void ChanPhoto()
         {
-            fAutoriz.SqlConn($@"select Furnitura.photo as 'f',Tcan.photo as 't' from Furnitura,Tcan where Furnitura.namefur='{namefurComboBox.SelectedText}' and Tcan.NameTcan='{nameTcanComboBox.SelectedText}'",true);
-            
+            fAutoriz.SqlConn($@"select Furnitura.photo as 'f',Tcan.photo as 't' from Furnitura,Tcan where Furnitura.namefur='{namefurComboBox.SelectedText}' and Tcan.NameTcan='{nameTcanComboBox.SelectedText}'", true);
+
             byte[] ByteImage = (byte[])fAutoriz.rd["f"];
             pbFur.Image = (Bitmap)(new ImageConverter().ConvertFrom(ByteImage));
             ByteImage = (byte[])fAutoriz.rd["t"];
@@ -423,17 +442,23 @@ namespace Practica22
             fAutoriz.con.Close();
         }
 
-        List<Tcan> LstTcan=new List<Tcan>();
+        List<Tcan> LstTcan = new List<Tcan>();
         List<Furn> LstFurn = new List<Furn>();
+
+        // List<Furn> LstFurnSel = new List<Furn>();
+
         List<His> LstHis = new List<His>();
-        List<int> LstIzd=new List<int>();
+
+        List<His> LstHisM = new List<His>();
+
+        List<int> LstIzd = new List<int>();
         List<newzak> LstZak = new List<newzak>();
         List<newzak> LstZak1 = new List<newzak>();
         List<newzak> LstZak2 = new List<newzak>();
         ItemPanelTcan CurrentItemTcan;
-        ItemPanelFur CurrentItemFur;
-        ItemPanelHis CurrentItemHis;
-
+        ItemPanelFr CurrentItemFur;
+        ItemPanelHis1 CurrentItemHis;
+       
         #region GetDB
 
         void GetDateIzdFromDB()
@@ -457,7 +482,7 @@ namespace Practica22
                 Furn furn = new Furn();
                 furn.Name = "Название: " + fAutoriz.rd["namefur"].ToString();
                 furn.ID = fAutoriz.rd["idfur"].ToString();
-                furn.Cnt= fAutoriz.rd["countfur"].ToString();
+                furn.Cnt = fAutoriz.rd["countfur"].ToString();
                 byte[] ByteImage = (byte[])fAutoriz.rd["photo"];
                 furn.PhotoFur = (Bitmap)(new ImageConverter().ConvertFrom(ByteImage));
                 LstFurn.Add(furn);
@@ -487,7 +512,7 @@ where z.IDIzd=i.IDIzd
             while (fAutoriz.rd.Read())
             {
                 His his = new His();
-                his.NameT =fAutoriz.rd["namet"].ToString();
+                his.NameT = fAutoriz.rd["namet"].ToString();
                 his.IDT = fAutoriz.rd["idt"].ToString();
                 byte[] ByteImage = (byte[])fAutoriz.rd["pt"];
                 his.PhotoT = (Bitmap)(new ImageConverter().ConvertFrom(ByteImage));
@@ -595,15 +620,15 @@ where z.IDIzd=i.IDIzd
         {
             fAutoriz.SqlConn(@"select Whidth,IDTcan,Length,Photo,NameTcan,NameColor,Primech from Tcan,Color where Tcan.IDColor=Color.IDColor", true);
             LstTcan.Clear();
-            while(fAutoriz.rd.Read())
+            while (fAutoriz.rd.Read())
             {
                 Tcan tcan = new Tcan();
-                tcan.Name ="Название: "+fAutoriz.rd["NameTcan"].ToString();
-                tcan.Color= "Цвет: "+fAutoriz.rd["NameColor"].ToString();
-                tcan.Desk= "Описание: "+fAutoriz.rd["Primech"].ToString();
-                tcan.W= "Ширина: "+fAutoriz.rd["Whidth"].ToString();
-                tcan.H= "Высота: "+fAutoriz.rd["Length"].ToString();
-                tcan.ID= fAutoriz.rd["IDTcan"].ToString();
+                tcan.Name = "Название: " + fAutoriz.rd["NameTcan"].ToString();
+                tcan.Color = "Цвет: " + fAutoriz.rd["NameColor"].ToString();
+                tcan.Desk = "Описание: " + fAutoriz.rd["Primech"].ToString();
+                tcan.W = "Ширина: " + fAutoriz.rd["Whidth"].ToString();
+                tcan.H = "Высота: " + fAutoriz.rd["Length"].ToString();
+                tcan.ID = fAutoriz.rd["IDTcan"].ToString();
                 byte[] ByteImage = (byte[])fAutoriz.rd["Photo"];
                 tcan.PhotoTcan = (Bitmap)(new ImageConverter().ConvertFrom(ByteImage));
                 LstTcan.Add(tcan);
@@ -734,11 +759,11 @@ where z.IDIzd=i.IDIzd
                     }
                 }
 
-            pFur.Controls.Clear();
+            pFurn.Controls.Clear();
 
             foreach (Furn furn in LstFurn)
             {
-                ItemPanelFur ItemPanelf = new ItemPanelFur();
+                ItemPanelFr ItemPanelf = new ItemPanelFr();
                 ItemPanelf.lNazvFur.Text = furn.Name;
                 ItemPanelf.lCntFur.Text = furn.Cnt;
                 ItemPanelf.IDFur = furn.ID;
@@ -752,7 +777,7 @@ where z.IDIzd=i.IDIzd
                 {
 
                 }
-                pFur.Controls.Add(ItemPanelf);
+                pFurn.Controls.Add(ItemPanelf);
 
                 ItemPanelf.Click += itemFur;
                 ItemPanelf.pbFur.Click += ObjectFur;
@@ -760,18 +785,18 @@ where z.IDIzd=i.IDIzd
                 ItemPanelf.lNazvFur.Click += ObjectFur;
 
 
-                if (pFur.Controls.Count == 1)
+                if (pFurn.Controls.Count == 1)
                 {
                     CurrentItemFur = ItemPanelf;
                     CurrentItemFur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
                 }
             }
 
-            pHistory.Controls.Clear();
+            pHistoryZ.Controls.Clear();
 
             foreach (His his in LstHis)
             {
-                ItemPanelHis ItemPanelh = new ItemPanelHis();
+                ItemPanelHis1 ItemPanelh = new ItemPanelHis1();
                 ItemPanelh.lCntF.Text = his.CntF;
                 ItemPanelh.lCntIzd.Text = his.CntI;
                 ItemPanelh.lF.Text = his.NameFm;
@@ -789,7 +814,7 @@ where z.IDIzd=i.IDIzd
                 }
                 catch { }
 
-                pHistory.Controls.Add(ItemPanelh);
+                pHistoryZ.Controls.Add(ItemPanelh);
 
                 ItemPanelh.Click += ItemPanelh_Click;
                 ItemPanelh.lT.Click += objecth_Click;
@@ -803,7 +828,7 @@ where z.IDIzd=i.IDIzd
                 ItemPanelh.lF.Click += objecth_Click;
 
 
-                if (pHistory.Controls.Count == 1)
+                if (pHistoryZ.Controls.Count == 1)
                 {
                     CurrentItemHis = ItemPanelh;
                     CurrentItemHis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
@@ -812,17 +837,19 @@ where z.IDIzd=i.IDIzd
         }
 
         #endregion
+
+
         private void objecth_Click(object sender, EventArgs e)
         {
             CurrentItemHis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
-            CurrentItemHis = (sender as Control).Parent as ItemPanelHis;
+            CurrentItemHis = (sender as Control).Parent as ItemPanelHis1;
             CurrentItemHis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
         }
 
         private void ItemPanelh_Click(object sender, EventArgs e)
         {
             CurrentItemHis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
-            CurrentItemHis = sender as ItemPanelHis;
+            CurrentItemHis = sender as ItemPanelHis1;
             CurrentItemHis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
         }
         
@@ -830,14 +857,14 @@ where z.IDIzd=i.IDIzd
         private void ObjectFur(object sender, EventArgs e)
         {
             CurrentItemFur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
-            CurrentItemFur = (sender as Control).Parent as ItemPanelFur;
+            CurrentItemFur = (sender as Control).Parent as ItemPanelFr;
             CurrentItemFur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
         }
         
         private void itemFur(object sender, EventArgs e)
         {
             CurrentItemFur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
-            CurrentItemFur = sender as ItemPanelFur;
+            CurrentItemFur = sender as ItemPanelFr;
             CurrentItemFur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(156)))), ((int)(((byte)(26)))));
         }
 
@@ -903,7 +930,7 @@ where z.IDIzd=i.IDIzd
         private void bNewZak_Click(object sender, EventArgs e)
         {
             if(tbCntFur.Text!=""&&tbCntIzd.Text!="")
-            fAutoriz.SqlConn($@"insert into Zakazi values({LstZak2[nameIzdComboBox.SelectedIndex]},{fAutoriz.ばかじゃない.ばか},(select Fam, Name,Otch from Users,Zakazi group by Role,Fam,Name,Otch,Users.IDUser,Zakazi.IDManager having Role=2 and Users.IDUser=Zakazi.IDManager and min(IDManager)>COUNT(IDManager) ),{LstZak1[nameTcanComboBox.SelectedIndex]},{LstZak[namefurComboBox.SelectedIndex]},{tbCntFur},{tbCntIzd})", false);
+            fAutoriz.SqlConn($@"insert into Zakazi values({LstZak2[nameIzdComboBox.SelectedIndex]},{fAutoriz.ばかじゃない.ばか},(select top 1 Fam, Name,Otch from Users group by Role,Fam,Name,Otch having Role=2 order by count(*) ),{LstZak1[nameTcanComboBox.SelectedIndex]},{LstZak[namefurComboBox.SelectedIndex]},{tbCntFur},{tbCntIzd})", false);
             MessageBox.Show("Заказ добавлен");
             GetDateHisFromDB();
         }
@@ -925,14 +952,130 @@ where z.IDIzd=i.IDIzd
 
         private void bCsv_Click(object sender, EventArgs e)
         {
-            StreamWriter sw = new StreamWriter(@"D:\заказы.csv",false ,Encoding.UTF8);
-
-            foreach (His item in LstHis)
+            if (ofd.ShowDialog() == DialogResult.OK)
             {
-                sw.WriteLine($"{item.NameI};{item.Zak};{item.Man};{item.NameT};{item.NameFm};{item.CntF};{item.CntI}");
+                StreamWriter sw = new StreamWriter(ofd.FileName, false, Encoding.Unicode);
+                ManagerExport();
+
+                foreach (His item in LstHisM)
+                {
+                    sw.WriteLine($"{item.NameI};{item.Zak};{item.Man};{item.NameT};{item.NameFm};{item.CntF};{item.CntI}");
+                }
+                sw.Close();
+                MessageBox.Show(@"Успешно сохранено ");
             }
-            sw.Close();
-            
+        }
+
+        private void ManagerExport()
+        {
+            fAutoriz.SqlConn($@"select (select fam+' '+Name+' '+Otch from Users where IDUser=z.IDZacazchik) as 'zakazchik'
+      ,(select fam+' '+Name+' '+Otch from Users where IDUser=z.IDManager) as 'manager'
+	  ,f.countfur as 'cntf' ,f.namefur as 'namef' ,f.photo as 'pf',f.idfur as 'idf'
+	  ,i.NameIzd as 'namei' ,i.Length as 'cnti',i.IDIzd as 'idi'
+	  ,t.Photo as 'pt' ,t.NameTcan as 'namet',t.IDTcan as 'idt'
+
+from Furnitura f
+    ,Izdelie i
+	,Tcan t
+	,Zakazi z
+
+where z.IDIzd=i.IDIzd 
+  and z.IDFurn=f.idfur
+  and z.IDTkan=t.IDTcan
+  and z.IDManager={fAutoriz.ばかじゃない.ばか}", true);
+            LstHis.Clear();
+            while (fAutoriz.rd.Read())
+            {
+                His his = new His();
+                his.NameT = fAutoriz.rd["namet"].ToString();
+                his.IDT = fAutoriz.rd["idt"].ToString();
+                byte[] ByteImage = (byte[])fAutoriz.rd["pt"];
+                his.PhotoT = (Bitmap)(new ImageConverter().ConvertFrom(ByteImage));
+                ByteImage = (byte[])fAutoriz.rd["pf"];
+                his.PhotoF = (Bitmap)(new ImageConverter().ConvertFrom(ByteImage));
+                his.CntF = fAutoriz.rd["cntf"].ToString();
+                his.CntI = fAutoriz.rd["cnti"].ToString();
+                his.NameFm = fAutoriz.rd["namef"].ToString();
+                his.NameI = fAutoriz.rd["namei"].ToString();
+                his.IDF = fAutoriz.rd["idf"].ToString();
+                his.IDI = fAutoriz.rd["idi"].ToString();
+                his.Man = fAutoriz.rd["manager"].ToString();
+                his.Zak = fAutoriz.rd["zakazchik"].ToString();
+
+
+                LstHisM.Add(his);
+            }
+        }
+
+        private void bWord_Click(object sender, EventArgs e)
+        {
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                DocX dox = DocX.Create(fbd.SelectedPath + @"\Заказы.docx");
+                dox.InsertParagraph($"{LstHisM[0].Man}");
+                dox.InsertParagraph("");
+                dox.InsertParagraph("Список заказов:");
+
+                var table = dox.AddTable(LstHisM.Count + 1, 6);
+                table.Alignment = Alignment.center;
+                table.Design = TableDesign.TableGrid;
+
+                table.Rows[0].Cells[0].Paragraphs.First().Append("Изделие");
+                table.Rows[0].Cells[1].Paragraphs.First().Append("Кол-во изделий");
+                table.Rows[0].Cells[2].Paragraphs.First().Append("Ткань");
+                table.Rows[0].Cells[3].Paragraphs.First().Append("Фурнитура");
+                table.Rows[0].Cells[4].Paragraphs.First().Append("Кол-во фурнитуры");
+                table.Rows[0].Cells[5].Paragraphs.First().Append("Заказчик");
+
+                for (int i = 1; i < table.RowCount; i++)
+                {
+                    table.Rows[0].Cells[0].Paragraphs.First().Append(LstHisM[i - 1].NameI);
+                    table.Rows[0].Cells[0].Paragraphs.First().Append(LstHisM[i - 1].CntI.ToString());
+                    table.Rows[0].Cells[0].Paragraphs.First().Append(LstHisM[i - 1].NameT.Split()[1]);
+                    table.Rows[0].Cells[0].Paragraphs.First().Append(LstHisM[i - 1].NameFm);
+                    table.Rows[0].Cells[0].Paragraphs.First().Append(LstHisM[i - 1].CntF.ToString());
+                    table.Rows[0].Cells[0].Paragraphs.First().Append(LstHisM[i - 1].Zak);
+                }
+
+                table.AutoFit = AutoFit.Window;
+
+                dox.InsertTable(table);
+                dox.Save();
+                Process.Start("winword.exe", fbd.SelectedPath + @"\Заказы.docx");
+            }
+        }
+
+        private void bSpFT_Click(object sender, EventArgs e)
+        {
+
+            foreach (Furn f in LstFurn)
+            {
+                if (CurrentItemFur.isSelected)
+                {
+
+                    fAutoriz.SqlConn($@"delete from Furnitura where idfur ={f.ID}", false);
+                }
+            }
+
+
+        }
+
+        private void bAddFT_Click(object sender, EventArgs e)
+        {
+            fSpis fs = new fSpis();
+            fs.ShowDialog();
+        }
+
+        private void bSPT_Click(object sender, EventArgs e)
+        {
+            foreach (Tcan t in LstTcan)
+            {
+                if (CurrentItemTcan.isSelected)
+                {
+                    
+                    fAutoriz.SqlConn($@"delete from Tcan where IDTcan ={t.ID}", false);
+                }
+            }
         }
     }
 }

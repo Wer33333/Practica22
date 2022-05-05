@@ -18,3 +18,6 @@ E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.fProfil
 E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.fManager.resources
 E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.KladMen.resources
 E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.FormSlepok.resources
+E:\практика22.04.2022\Practica22\Practica22\obj\Debug\Practica22.fSpis.resources
+E:\практика22.04.2022\Practica22\Practica22\bin\Debug\Xceed.Document.NET.dll
+E:\практика22.04.2022\Practica22\Practica22\bin\Debug\Xceed.Words.NET.dll
